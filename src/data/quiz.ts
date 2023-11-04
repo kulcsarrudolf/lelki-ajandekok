@@ -522,6 +522,263 @@ export const quizData: Quiz = [
       },
     ],
   },
+  {
+    sectionName: "Tetszik nekem...",
+    description:
+      "Ha a következõ állításokkal kapcsolatban még nem volt tapasztalatod, jelöld a jobb oldali oszlopot.",
+    answers: [
+      { text: "nagyon k0nnyű", value: 9 },
+      { text: "könnyű", value: 7 },
+      { text: "közepesen", value: 4 },
+      { text: "nehéz", value: 2 },
+      { text: "nagyon nehéz", value: 0 },
+    ],
+    questions: [
+      {
+        text: "...üzleti, és szervezési kérdéseket önállóan megvalósítani",
+        value: 121,
+      },
+      {
+        text: "...megtalálni emberekhez az utat, akiknek egészen máséletstílusuk van mint nekem",
+        value: 122,
+      },
+      {
+        text: "...hogy figyelmen kívül hagyjam a családalapítást ( házasokjelöljék a jobboldali oszlopot )",
+        value: 123,
+      },
+      {
+        text: "...hogy megvizsgáljam, hogy az adott szavak, isteni,emberi, vagy sátáni eredetûek-e",
+        value: 124,
+      },
+      {
+        text: "...hogy megállapítsam annak idõpontját, hogy mikor mijátszódik le a másikban, és segítõ módon viselkedjek",
+        value: 125,
+      },
+      {
+        text: "...hogy egy beszélgetésben pontosan megtudjam, hogy mijátszódik le a másikban, és segítõ módon viselkedjek",
+        value: 126,
+      },
+      {
+        text: "...hogy olyan dolgokért imádkozzam és dolgozzam,melyeket mások lehetetlennek tartanak",
+        value: 127,
+      },
+      {
+        text: "...hogy jövedelmem egy fontos hányadát, rendszeresenIsten ügyére fordíthatom",
+        value: 128,
+      },
+      {
+        text: "...ha észrevehetem, hogy van-e valakinek az életébendémonikus befolyás, terület",
+        value: 129,
+      },
+      {
+        text: "...ha személyesen és konkrétan imádkozhatok betegekgyógyulásáért",
+        value: 130,
+      },
+      {
+        text: "...ha információkat logikusan, érdekesen és érthetõenadhatok tovább a hallgatóságnak",
+        value: 131,
+      },
+      { text: "...ha nyelveken imádkozhatok", value: 132 },
+      {
+        text: "...ha elméleti ismeretet, konkrét helyzetben alkalmazhatok",
+        value: 133,
+      },
+      { text: "...ha anyagilag alacsonyabb életnívón élhetek", value: 134 },
+      {
+        text: "...ha teljesen gyakorlati munkát végezhetek a két kezemmel",
+        value: 135,
+      },
+      {
+        text: "...hogy más hívõktõl, szolgálatot vegyek át, hogy õk jobbanvégezhessék az õ szolgálatukat",
+        value: 136,
+      },
+      {
+        text: "...ha ismeretlen látogatóknak az otthon érzését nyújthatom",
+        value: 137,
+      },
+      {
+        text: "...ha bizonyos dolgokért hetekig, hónapokig imádkozhatok",
+        value: 138,
+      },
+      {
+        text: "...ha megérezhetem, hogy mit akar Isten mondani,nyelveken",
+        value: 139,
+      },
+      {
+        text: "...ha tényeket fedezhetek fel, és szisztematikusanmegfogalmazhatok, melyek a gyülekezet építésére vannak",
+        value: 140,
+      },
+      { text: "...ha másokat feladattal bízhatok meg", value: 141 },
+      {
+        text: "...ha Krisztusért, szenvedést vállalhatok magamra",
+        value: 142,
+      },
+      {
+        text: "...ha kifejezhetem együttérzésemet, szükségben levõembereknek",
+        value: 143,
+      },
+      {
+        text: "...ha természetfeletti jelekért, csodákért imádkozhatok",
+        value: 144,
+      },
+      {
+        text: "...ha csoportokat, gyülekezeteket tanácsolhatok szellemiállapotukat illetõen",
+        value: 145,
+      },
+      {
+        text: "...ha keresztyének csoportját személyesen kísérhetem, ésha dolgozhatok egységükért",
+        value: 146,
+      },
+      {
+        text: "...ha Istentõl felvilágosítást kapok arra, hogy bizonyoshelyzetben mi az Õ akarata",
+        value: 147,
+      },
+      {
+        text: "...hogy komolyan vegyek olyan szolgálatot, amit másoknem tartanak elég látványosnak",
+        value: 148,
+      },
+      {
+        text: "...ha mások jelenlétében Isten dicsõségére zenélhetek,énekelhetek",
+        value: 149,
+      },
+      {
+        text: "...ha kreatív lehetek, és így kommunikálhatok ( festés, rajz,pantomim, jelenet, bábjáték stb. )",
+        value: 150,
+      },
+    ],
+  },
+  {
+    sectionName: "Készen lennék arra, hogy...",
+    answers: [
+      { text: "nagyon szívesen", value: 7 },
+      { text: "szívesen", value: 5 },
+      { text: "adott esetekben", value: 2 },
+      { text: "szükség esetben", value: 1 },
+      { text: "semmi esetre", value: 0 },
+    ],
+    questions: [
+      {
+        text: "...képzéseken vegyek részt, melyek segítenek abban, hogy atervezésben, szervezésben és mások bevonásában fejlõdjek",
+        value: 151,
+      },
+      {
+        text: "...egy idegen kultúrában dolgozzak, ha erre lehetõség nyílik",
+        value: 152,
+      },
+      {
+        text: "...hajadon, vagy nõtlen maradjak, hogy ezáltal többetdolgozhassak Isten országáért (a házasok jelöljék a jobb oszlopot )",
+        value: 153,
+      },
+      {
+        text: "...hogy sok idõt töltsek a Bibila, és más irodalom alapostanulmányozásával, tisztább látásért, a különbségtételre",
+        value: 154,
+      },
+      {
+        text: "...olyan tanfolyamon vegyek részt, ahol abban segíthetek,hogy hogyan lehet valakit hitre segíteni",
+        value: 155,
+      },
+      {
+        text: "...hogy tanuljak arról, hogyan tudok másoknak rendszeresbeszélgetés által segíteni",
+        value: 156,
+      },
+      {
+        text: "...akkor is elkezdjek egy feladatot, ha nagy a kockázata",
+        value: 157,
+      },
+      {
+        text: "...jól munkálkodó testvéreket, rendszeresen támogassak",
+        value: 158,
+      },
+      {
+        text: "...hogy szembeszáljak démonikus erõkkel, ha mások issegítenek ebben nekem",
+        value: 159,
+      },
+      {
+        text: "...hogy betegekért végzett imaszolgálatban vegyek részt",
+        value: 160,
+      },
+      {
+        text: "...több irodalmat olvassak a komunkikációról, hogyképességeimet növeljem ezen a területen",
+        value: 161,
+      },
+      {
+        text: "...hogy nyelveken szóljak, ha Isten megadja nekem ezt azajándékot",
+        value: 162,
+      },
+      {
+        text: "...sok idõt szenteljek annak, hogy embereket, csoportokattanácsoljak nehéz döntéseikben",
+        value: 163,
+      },
+      {
+        text: "...szükség szerint lemondjak jó ételrõl, kényelmesotthonról, drága ruháról",
+        value: 164,
+      },
+      {
+        text: "...szükség esetén a gyülekezetben elõforduló munkában,részt vegyek, segítsek",
+        value: 165,
+      },
+      {
+        text: "...túlterhelt keresztyének munkáján könnyítsek úgy, hogytámogatom õket szolgálatukban",
+        value: 166,
+      },
+      {
+        text: "...otthonomat jobban megosszam barátaimmal, mint eddig",
+        value: 167,
+      },
+      {
+        text: "...egy gyülekezeti csoportban dolgozzak, akik folyamatosimaszolgálatot végeznek",
+        value: 168,
+      },
+      {
+        text: "...a nyelveken szólás magyarázatát adjam, ha Isten megadjaa jelentést",
+        value: 169,
+      },
+      {
+        text: "...sok idõt szánjak annak kutatására, hogy amik azok a dolgok, melyek elõsegítik a gyülekezet egészséges fejlõdését",
+        value: 170,
+      },
+      {
+        text: "...vezessek rám bízott nagyobb létszámú közösséget",
+        value: 171,
+      },
+      {
+        text: "...életemet kockára tegyem, ha ezt kivánná Isten országa",
+        value: 172,
+      },
+      {
+        text: "...olyan gyülekezeti szolgálatban vegyek részt, akik törõdneka társadalom peremén élõkkel",
+        value: 173,
+      },
+      {
+        text: "...imádságban, olyan esetekre koncentráljak, melyekemberi számítás szerint kilátástalanok",
+        value: 174,
+      },
+      {
+        text: "...gyülekezetek között fennálló konfliktusok megoldásábansegítsek",
+        value: 175,
+      },
+      {
+        text: "...átvegyem a felelõsségét, egy hívõkbõl álló csoportvezetésének",
+        value: 176,
+      },
+      {
+        text: "...gyülekezeti tagoknak Istentõl vett üzeneteket közvetítsek,akkor is, ha ez kényelmetlen néha",
+        value: 177,
+      },
+      {
+        text: "...idõt szánjak a gyülekezetben olyan dolgokra, melyek alegsürgõsebben elvégzendõk",
+        value: 178,
+      },
+      {
+        text: "...eggyüttmûködjek a gyülekezet zenei életében",
+        value: 179,
+      },
+      {
+        text: "...olyan gyülekezeti csoportban dolgozzam, ahol lehetõségvan a mûvészi képességek kifejlesztésére",
+        value: 180,
+      },
+    ],
+  },
 ];
 
 export default quizData;
