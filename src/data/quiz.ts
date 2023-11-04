@@ -1,17 +1,6 @@
-type QuizSection = {
-  sectionName: string;
-  description?: string;
-  questions: {
-    value: number;
-    text: string;
-  }[];
-  answers: {
-    value: number;
-    text: string;
-  }[];
-};
+import { Quiz } from "../types/Quiz";
 
-export const quiz: QuizSection[] = [
+export const quizData: Quiz = [
   {
     sectionName: "Örömöt okoz nekem....",
     description:
@@ -535,6 +524,4 @@ export const quiz: QuizSection[] = [
   },
 ];
 
-export default quiz;
-
-// questions text and value
+export default quizData;
