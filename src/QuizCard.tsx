@@ -1,13 +1,12 @@
 import { useState } from "react";
 import quizData from "./data/quiz";
-import { Quiz, QuizAnswer, QuizSection } from "./types/Quiz";
+import { QuizAnswer, QuizSection } from "./types/Quiz";
 import Button from "./components/Button";
 import AnswerOption from "./components/AnswerOption";
 import Question from "./components/Question";
 import { Description } from "./components/Typography";
 
 const QuizCard = () => {
-  const [quiz, setQuiz] = useState<Quiz>(quizData);
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
   const [currentSection, setCurrentSection] = useState(quizData[0]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -39,7 +38,7 @@ const QuizCard = () => {
 
   return (
     <>
-      {quiz?.map((section: QuizSection) => {
+      {quizData.map((section: QuizSection) => {
         if (section.sectionName !== currentSection.sectionName) return null;
         return (
           <div key={section.sectionName} className="mb-4">
