@@ -1,4 +1,4 @@
-import { Quiz } from "../types/Quiz";
+import { Quiz, QuizAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 
 export const quizData: Quiz = [
@@ -8,7 +8,7 @@ export const quizData: Quiz = [
       "Ha még nincs tapasztalatod a következõ területeken, jelöld be a jobb szélsõ oszlopot.",
     answers: [
       { text: "nagyon sokat", value: 11 },
-      { text: "sokat", value: 19 },
+      { text: "sokat", value: 9 },
       { text: "közepest", value: 4 },
       { text: "keveset", value: 2 },
       { text: "egyáltalán nem", value: 0 },
@@ -782,29 +782,30 @@ export const quizData: Quiz = [
   },
 ];
 
-export const getQuizData = (): Quiz => {
-  return quizData.map((section) => {
-    const sectionWithId = {
-      id: uuidv4(),
-      ...section,
-    };
+export interface IQuestionDetails {
+  id: string;
+  questionNumber: number;
+  questionText: string;
+  sectionName: string;
+  answers: QuizAnswer[];
+}
 
-    sectionWithId.questions = section.questions.map((question) => ({
-      id: uuidv4(),
-      ...question,
-    }));
+export const getQuizData = (): IQuestionDetails[] => {
+  const result: IQuestionDetails[] = [];
 
-    if (sectionWithId.answers) {
-      sectionWithId.answers = section.answers.map((answer) => ({
+  quizData.forEach((section) => {
+    section.questions.forEach((question: { text: string; value: number }) => {
+      const currentQuestion = {
         id: uuidv4(),
-        ...answer,
-      }));
-    }
+        questionNumber: question.value,
+        questionText: question.text,
+        sectionName: section.sectionName,
+        answers: section.answers,
+      };
 
-    sectionWithId.totalQuestions = sectionWithId.questions.length;
-
-    return sectionWithId;
+      result.push(currentQuestion);
+    });
   });
-};
 
-export default quizData;
+  return result;
+};

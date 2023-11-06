@@ -2,14 +2,12 @@ import React from "react";
 import { QuizAnswer } from "../types/Quiz";
 
 interface AnswerOptionProps {
-  // answerText: string;
   answer: QuizAnswer;
   isSelected: boolean;
   onSelect: (answer: QuizAnswer) => void;
 }
 
 const AnswerOption: React.FC<AnswerOptionProps> = ({
-  // answerText,
   answer,
   isSelected,
   onSelect,
