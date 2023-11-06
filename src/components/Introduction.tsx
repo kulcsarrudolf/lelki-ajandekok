@@ -26,6 +26,18 @@ const Introduction = ({ goForward }: IntroductionProps) => {
       <p className="font-bold italic mt-4">
         Sok örömet kívánunk neked a teszt elkészítése közben!
       </p>
+      <p className="mt-4 font-bold">
+        Forrás:{" "}
+        <span className="font-normal italic text-blue-800">
+          <a
+            href="http://www.tavasz56.hu/tp/szolg/20091220-karizma_teszt.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            http://www.tavasz56.hu/tp/szolg/20091220-karizma_teszt.pdf
+          </a>
+        </span>
+      </p>
       <div className="w-full mt-10 flex justify-center">
         <Button disabled={false} text="Tovább a teszthez" onClick={goForward} />
       </div>
