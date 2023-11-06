@@ -1,10 +1,42 @@
+import { useEffect, useState } from "react";
 import Button from "./Button";
+import {
+  LocalStorageKeys,
+  clearLocalStorage,
+  loadFromLocalStorage,
+} from "../utils.js/local-storage";
 
 interface IntroductionProps {
   goForward: () => void;
 }
 
 const Introduction = ({ goForward }: IntroductionProps) => {
+  const [quizButtonText, setQuizButtonText] =
+    useState<string>("Tovább a teszthez");
+  const [showResetButton, setShowResetButton] = useState<boolean>(false);
+
+  const handleDeleteLocalStorage = () => {
+    clearLocalStorage();
+    setShowResetButton(false);
+    setQuizButtonText("Tovább a teszthez");
+  };
+
+  useEffect(() => {
+    console.log("Introduction rendered");
+    const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
+
+    if (localStorageAnswers) {
+      const currentAnswers = JSON.parse(localStorageAnswers.value).filter(
+        (result: any) => result
+      );
+
+      if (currentAnswers.length > 0) {
+        setQuizButtonText("A teszt folytatása");
+        setShowResetButton(true);
+      }
+    }
+  }, []);
+
   return (
     <>
       <p>
@@ -39,8 +71,17 @@ const Introduction = ({ goForward }: IntroductionProps) => {
         </span>
       </p>
       <div className="w-full mt-10 flex justify-center">
-        <Button disabled={false} text="Tovább a teszthez" onClick={goForward} />
+        <Button disabled={false} text={quizButtonText} onClick={goForward} />
       </div>
+      {showResetButton && (
+        <div className="w-full mt-2 flex justify-center">
+          <Button
+            disabled={false}
+            text="Adatok törlése"
+            onClick={handleDeleteLocalStorage}
+          />
+        </div>
+      )}
     </>
   );
 };
