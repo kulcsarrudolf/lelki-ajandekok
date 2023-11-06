@@ -800,7 +800,11 @@ export const getQuizData = (): IQuestionDetails[] => {
         questionNumber: question.value,
         questionText: question.text,
         sectionName: section.sectionName,
-        answers: section.answers,
+        answers: section.answers.map((answer) => ({
+          id: uuidv4(),
+          text: answer.text,
+          value: answer.value,
+        })),
       };
 
       result.push(currentQuestion);

@@ -2,6 +2,7 @@ import { useState } from "react";
 import QuizCard from "./QuizCard";
 import { Title } from "./components/Typography";
 import Introduction from "./components/Introduction";
+import Result from "./components/Result";
 
 enum Step {
   Inroduction,
@@ -23,7 +24,15 @@ function App() {
             }}
           />
         )}
-        {step === Step.Quiz && <QuizCard />}
+        {step === Step.Quiz && (
+          <QuizCard
+            handleNextStep={() => {
+              setStep(Step.Result);
+            }}
+          />
+        )}
+
+        {step === Step.Result && <Result />}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ interface ButtonProps {
   disabled: boolean;
   text: string;
   extraClasses?: string;
+  fullWidth?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -12,9 +13,11 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   text,
   extraClasses,
+  fullWidth = false,
 }) => {
-  const defaultClasses =
-    "min-w-[150px] h-12 text-white font-semibold rounded focus:outline-none focus:ring-2 focus:ring-blue-300 mx-5";
+  const width = fullWidth ? "min-w-full" : "min-w-[10rem]";
+
+  const defaultClasses = `${width} h-12 text-white font-semibold rounded focus:outline-none focus:ring-2 focus:ring-blue-300 mx-5`;
   const enabledClasses = "bg-blue-500 hover:bg-blue-600";
   const disabledClasses = "bg-blue-200 cursor-not-allowed";
 
