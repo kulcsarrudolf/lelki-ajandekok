@@ -84,8 +84,13 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
       {quizData.map((question: IQuestionDetails) => {
         if (question.questionNumber !== currentQuestionNumber) return null;
 
-        const { id, sectionName, questionText, questionNumber, answers } =
-          question;
+        const {
+          id,
+          sectionName,
+          questionText,
+          questionNumber,
+          answers: answerOptions,
+        } = question;
 
         const isLastQuestion = currentQuestionNumber === quizData.length;
 
@@ -100,7 +105,7 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
                 }}
               />
               <div className="mt-2">
-                {answers.map((answer: QuizAnswer) => {
+                {answerOptions.map((answer: QuizAnswer) => {
                   return (
                     <AnswerOption
                       key={answer.id}
@@ -128,7 +133,25 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
               {isLastQuestion && currentAnswer && (
                 <div className="flex justify-center mt-4">
                   <Button
-                    onClick={handleNextStep}
+                    onClick={() => {
+                      const answersCopy = [...answers];
+
+                      if (currentAnswer) {
+                        answersCopy[currentQuestionNumber] = {
+                          questionNumber: currentQuestionNumber,
+                          answer: currentAnswer,
+                        };
+                      }
+
+                      setAnswers(answersCopy);
+
+                      saveToLocalStorage(LocalStorageKeys.Answers, {
+                        value: JSON.stringify(answersCopy),
+                        timestamp: new Date(),
+                      });
+
+                      handleNextStep();
+                    }}
                     disabled={!currentAnswer}
                     text="Tovább a végeredményhez"
                     fullWidth

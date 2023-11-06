@@ -60,8 +60,6 @@ const Result = () => {
 
       const result = getResults(currentAnswers);
 
-      console.log(result);
-
       setResult(result);
     }
   }, []);

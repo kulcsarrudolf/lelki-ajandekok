@@ -77,7 +77,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
         <div className="w-full mt-2 flex justify-center">
           <Button
             disabled={false}
-            text="Adatok törlése"
+            text="Teszt újrakezdése"
             onClick={handleDeleteLocalStorage}
           />
         </div>
