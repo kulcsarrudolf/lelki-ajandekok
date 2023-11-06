@@ -1,13 +1,16 @@
 import React from "react";
+import { QuizAnswer } from "../types/Quiz";
 
 interface AnswerOptionProps {
-  answerText: string;
+  // answerText: string;
+  answer: QuizAnswer;
   isSelected: boolean;
-  onSelect: (answer: string) => void;
+  onSelect: (answer: QuizAnswer) => void;
 }
 
 const AnswerOption: React.FC<AnswerOptionProps> = ({
-  answerText,
+  // answerText,
+  answer,
   isSelected,
   onSelect,
 }) => {
@@ -16,19 +19,19 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
       className={`flex items-center mb-2 p-2 rounded cursor-pointer ${
         isSelected ? "bg-blue-300" : "bg-gray-200"
       }`}
-      onClick={() => onSelect(answerText)}
+      onClick={() => onSelect(answer)}
     >
       <label
-        htmlFor={answerText}
+        htmlFor={answer.text}
         className="select-none ml-2 p-1 rounded w-full"
       >
         <input
           type="radio"
-          id={answerText}
+          id={answer.text}
           name="question"
-          value={answerText}
+          value={answer.text}
           checked={isSelected}
-          onChange={() => onSelect(answerText)}
+          onChange={() => onSelect(answer)}
           className="mr-2 h-4 w-4 border-gray-300 rounded text-blue-600 focus:ring-blue-500"
           style={{
             opacity: 0,
@@ -36,7 +39,7 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
             margin: 0,
           }}
         />
-        {answerText}
+        {answer.text}
       </label>
     </div>
   );

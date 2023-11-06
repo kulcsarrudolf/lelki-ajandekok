@@ -1,10 +1,12 @@
 import { useState } from "react";
-import quizData from "./data/quiz";
-import { QuizAnswer, QuizSection } from "./types/Quiz";
+import { IQuestion, Quiz, QuizAnswer, QuizSection } from "./types/Quiz";
 import Button from "./components/Button";
 import AnswerOption from "./components/AnswerOption";
 import Question from "./components/Question";
 import { Description } from "./components/Typography";
+import { getQuizData } from "./data/quiz";
+
+const quizData: Quiz = getQuizData();
 
 const QuizCard = () => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
@@ -15,8 +17,8 @@ const QuizCard = () => {
     quizData[0].questions.length
   );
 
-  const handleAnswerSelect = (answer: string) => {
-    setSelectedAnswer(answer);
+  const handleAnswerSelect = (answer: QuizAnswer) => {
+    setSelectedAnswer(answer.text);
   };
 
   const handleNextQuestion = () => {
@@ -43,7 +45,7 @@ const QuizCard = () => {
         return (
           <div key={section.sectionName} className="mb-4">
             <Description text={section.sectionName} />
-            {section.questions.map((question: any) => {
+            {section.questions.map((question: IQuestion) => {
               if (question.value === currentQuestion)
                 return (
                   <div key={question.text} className="mb-4 mt-4">
@@ -55,7 +57,7 @@ const QuizCard = () => {
                         return (
                           <AnswerOption
                             key={answer.text}
-                            answerText={answer.text}
+                            answer={answer}
                             isSelected={isSelected}
                             onSelect={handleAnswerSelect}
                           />

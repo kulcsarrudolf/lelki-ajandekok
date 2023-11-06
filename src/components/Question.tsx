@@ -1,10 +1,8 @@
 import React from "react";
+import { IQuestion } from "../types/Quiz";
 
 interface QuestionProps {
-  question: {
-    text: number;
-    value: string;
-  };
+  question: IQuestion;
 }
 
 const Question: React.FC<QuestionProps> = ({ question: { text, value } }) => {

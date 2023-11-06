@@ -1,4 +1,5 @@
 import { Quiz } from "../types/Quiz";
+import { v4 as uuidv4 } from "uuid";
 
 export const quizData: Quiz = [
   {
@@ -780,5 +781,30 @@ export const quizData: Quiz = [
     ],
   },
 ];
+
+export const getQuizData = (): Quiz => {
+  return quizData.map((section) => {
+    const sectionWithId = {
+      id: uuidv4(),
+      ...section,
+    };
+
+    sectionWithId.questions = section.questions.map((question) => ({
+      id: uuidv4(),
+      ...question,
+    }));
+
+    if (sectionWithId.answers) {
+      sectionWithId.answers = section.answers.map((answer) => ({
+        id: uuidv4(),
+        ...answer,
+      }));
+    }
+
+    sectionWithId.totalQuestions = sectionWithId.questions.length;
+
+    return sectionWithId;
+  });
+};
 
 export default quizData;
