@@ -1,5 +1,6 @@
 export type QuizAnswer = {
   id?: string;
+  questionNumber?: number;
   value: number;
   text: string;
 };
