@@ -117,21 +117,8 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
                 })}
               </div>
 
-              <div className="flex justify-center mt-4">
-                <Button
-                  onClick={handlePreviousQuestion}
-                  disabled={currentQuestionNumber === 1}
-                  text="Előző kérdés"
-                />
-                <Button
-                  onClick={handleNextQuestion}
-                  disabled={!currentAnswer || isLastQuestion}
-                  text="Következő kérdés"
-                />
-              </div>
-
               {isLastQuestion && currentAnswer && (
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center my-2">
                   <Button
                     onClick={() => {
                       const answersCopy = [...answers];
@@ -158,6 +145,23 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
                   />
                 </div>
               )}
+
+              <div className="flex flex-col-reverse space-y-2 space-y-reverse xs:flex-row xs:space-y-0 xs:space-x-2 justify-center mt-4">
+                <Button
+                  onClick={handlePreviousQuestion}
+                  disabled={currentQuestionNumber === 1}
+                  text="Előző kérdés"
+                  order={1}
+                  colorClass="bg-rose-500 hover:bg-rose-600"
+                />
+
+                <Button
+                  onClick={handleNextQuestion}
+                  disabled={!currentAnswer || isLastQuestion}
+                  text="Következő kérdés"
+                  order={2}
+                />
+              </div>
             </div>
           </Fragment>
         );
