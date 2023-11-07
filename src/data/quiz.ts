@@ -66,7 +66,7 @@ export const quizData: Quiz = [
       { value: 14, text: "...ha rendelkezem a léthez szükséges javakkal" },
       {
         value: 15,
-        text: "...ha dolgokat megjavíthatok, karban tarthatok ( eszközök a misszióban )",
+        text: "...ha dolgokat megjavíthatok, karban tarthatok (eszközök a misszióban)",
       },
       {
         text: '...ha a háttérben dolgozva támogathatom a "reflektorfényben" szolgáló testvéreimet',
@@ -81,19 +81,19 @@ export const quizData: Quiz = [
         value: 18,
       },
       {
-        text: "...ha valakinek a nyelvekenszólásból kihallhatom Istenüzenetét számunkra",
+        text: "...ha valakinek a nyelvekenszólásból kihallhatom Isten üzenetét számunkra",
         value: 19,
       },
       {
-        text: "...ha sok időt tölthetek tanulással azért, hogy többismeretre tegyek szert",
+        text: "...ha sok időt tölthetek tanulással azért, hogy több ismeretre tegyek szert",
         value: 20,
       },
       {
-        text: "...ha embereket vezethetek, akik közös cél felé haladnakegyütt",
+        text: "...ha embereket vezethetek, akik közös cél felé haladnak együtt",
         value: 21,
       },
       {
-        text: "...ha szenvedéseim közepette, bizonyságot tehetek, ahelyes életszemléletről",
+        text: "...ha szenvedéseim közepette, bizonyságot tehetek, a helyes életszemléletről",
         value: 22,
       },
       {
@@ -105,11 +105,11 @@ export const quizData: Quiz = [
         value: 24,
       },
       {
-        text: "...ha más gyülekezetek problémáival úgy foglalkozhatok,hogy segíthetek a megoldásukban",
+        text: "...ha más gyülekezetek problémáival úgy foglalkozhatok, hogy segíthetek a megoldásukban",
         value: 25,
       },
       {
-        text: "...ha törődhetek mások lelki szükségeivel, és hosszankísérhetem őket",
+        text: "...ha törődhetek mások lelki szükségeivel, és hosszan kísérhetem őket",
         value: 26,
       },
       {
@@ -245,7 +245,7 @@ export const quizData: Quiz = [
       },
       { text: "...Istent muzsikával szolgálni", value: 59 },
       {
-        text: "...Érzelmeimet kreatív módon kifejezni (jelenet, festészet,kerámia, stb)",
+        text: "...Érzelmeimet kreatív módon kifejezni (jelenet, festészet, kerámia, stb)",
         value: 60,
       },
     ],
