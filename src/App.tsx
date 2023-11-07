@@ -32,7 +32,13 @@ function App() {
           />
         )}
 
-        {step === Step.Result && <Result />}
+        {step === Step.Result && (
+          <Result
+            goToHome={() => {
+              setStep(Step.Inroduction);
+            }}
+          />
+        )}
       </div>
     </div>
   );

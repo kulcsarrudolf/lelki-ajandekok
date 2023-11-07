@@ -7,6 +7,7 @@ import { QuizAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 import gifts from "../data/gifts";
 import { Subtitle } from "./Typography";
+import Button from "./Button";
 
 type Gift = {
   name: string;
@@ -48,7 +49,10 @@ const getResults = (answers: any[]) => {
   return { partAResult, partBResult };
 };
 
-const Result = () => {
+interface ResultProps {
+  goToHome: () => void;
+}
+const Result = ({ goToHome }: ResultProps) => {
   const [result, setResult] = useState<any>(null);
 
   useEffect(() => {
@@ -70,19 +74,38 @@ const Result = () => {
   }
 
   return (
-    <div>
-      <Subtitle text="Ajándékaim" />
+    <>
+      <div className="space-y-4">
+        <div>
+          <h3 className="text-xl font-semibold mb-2">AJÁNDÉKAIM</h3>
+          <ul className="list-disc space-y-2 pl-5">
+            {result.partAResult.map((result: any) => (
+              <li key={uuidv4()}>{result.gift}</li>
+            ))}
+          </ul>
+        </div>
 
-      {result.partAResult.map((result: any) => (
-        <p key={uuidv4()}>{result.gift}</p>
-      ))}
+        <hr className="my-6 border-gray-200" />
 
-      <Subtitle text="Rejtett Ajándékaim" />
+        <div>
+          <h3 className="text-xl font-semibold mb-2">REJTETT AJÁNDÉKAIM</h3>
+          <ul className="list-disc space-y-2 pl-5">
+            {result.partBResult.map((result: any) => (
+              <li key={uuidv4()}>{result.gift}</li>
+            ))}
+          </ul>
+        </div>
 
-      {result.partBResult.map((result: any) => (
-        <p key={uuidv4()}>{result.gift}</p>
-      ))}
-    </div>
+        <div className="flex justify-center my-2">
+          <Button
+            onClick={goToHome}
+            disabled={false}
+            text="Vissza a kezdőlapra"
+            fullWidth
+          />
+        </div>
+      </div>
+    </>
   );
 };
 

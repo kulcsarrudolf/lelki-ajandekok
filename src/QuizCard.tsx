@@ -87,6 +87,7 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
         const {
           id,
           sectionName,
+          description,
           questionText,
           questionNumber,
           answers: answerOptions,
@@ -97,6 +98,7 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
         return (
           <Fragment key={id}>
             <Description text={sectionName} />
+            {description && <Description small text={`(${description})`} />}
             <div className="mb-4 mt-4">
               <Question
                 question={{

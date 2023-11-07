@@ -5,7 +5,7 @@ export const quizData: Quiz = [
   {
     sectionName: "Örömöt okoz nekem....",
     description:
-      "Ha még nincs tapasztalatod a következő területeken, jelöld meg az utolsó opciót.",
+      "Ha még nincs tapasztalatod ezen a területen, jelöld meg az utolsó opciót.",
     answers: [
       { text: "nagyon sokat", value: 11 },
       { text: "sokat", value: 9 },
@@ -526,7 +526,7 @@ export const quizData: Quiz = [
   {
     sectionName: "Tetszik nekem...",
     description:
-      "Ha még nincs tapasztalatod a következő területeken, jelöld meg az utolsó opciót.",
+      "Ha még nincs tapasztalatod ezen a területen, jelöld meg az utolsó opciót.",
     answers: [
       { text: "nagyon k0nnyű", value: 9 },
       { text: "könnyű", value: 7 },
@@ -787,6 +787,7 @@ export interface IQuestionDetails {
   questionNumber: number;
   questionText: string;
   sectionName: string;
+  description?: string;
   answers: QuizAnswer[];
 }
 
@@ -800,6 +801,7 @@ export const getQuizData = (): IQuestionDetails[] => {
         questionNumber: question.value,
         questionText: question.text,
         sectionName: section.sectionName,
+        description: section.description,
         answers: section.answers.map((answer) => ({
           id: uuidv4(),
           text: answer.text,
