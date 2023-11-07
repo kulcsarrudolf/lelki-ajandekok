@@ -6,7 +6,6 @@ import {
 import { QuizAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 import gifts from "../data/gifts";
-import { Subtitle } from "./Typography";
 import Button from "./Button";
 
 type Gift = {
