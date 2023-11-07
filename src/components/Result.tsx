@@ -38,8 +38,9 @@ const sortResultsDesc = (results: { gift: string; score: number }[]) =>
   results.sort((a, b) => b.score - a.score);
 
 const getResults = (answers: any[]) => {
-  let partAResult = calculateScoresForPart(gifts, answers, "partA");
-  let partBResult = calculateScoresForPart(gifts, answers, "partB");
+  const answersCopy = JSON.parse(JSON.stringify(answers));
+  let partAResult = calculateScoresForPart(gifts, answersCopy, "partA");
+  let partBResult = calculateScoresForPart(gifts, answersCopy, "partB");
 
   partAResult = sortResultsDesc(partAResult).slice(0, 5);
   partBResult = sortResultsDesc(partBResult).slice(0, 5);
