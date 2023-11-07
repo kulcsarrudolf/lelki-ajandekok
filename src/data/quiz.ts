@@ -5,7 +5,7 @@ export const quizData: Quiz = [
   {
     sectionName: "Örömöt okoz nekem....",
     description:
-      "Ha még nincs tapasztalatod a következõ területeken, jelöld be a jobb szélsõ oszlopot.",
+      "Ha még nincs tapasztalatod a következő területeken, jelöld meg az utolsó opciót.",
     answers: [
       { text: "nagyon sokat", value: 11 },
       { text: "sokat", value: 9 },
@@ -24,7 +24,7 @@ export const quizData: Quiz = [
       },
       {
         value: 3,
-        text: "...hogy házastárs. és család nélkül éljek (házasok jelöljék a jobb oldalt.)",
+        text: "...hogy házastárs és család nélkül éljek (házasok jelöljék az utolsó opciót)",
       },
       {
         value: 4,
@@ -73,7 +73,7 @@ export const quizData: Quiz = [
         value: 16,
       },
       {
-        text: "...ha bejelentkezés nélkül érkezõ vendégeknek élelmet ésszállást adhatok",
+        text: "...ha bejelentkezés nélkül érkező vendégeknek élelmet ésszállást adhatok",
         value: 17,
       },
       {
@@ -85,7 +85,7 @@ export const quizData: Quiz = [
         value: 19,
       },
       {
-        text: "...ha sok idõt tölthetek tanulással azért, hogy többismeretre tegyek szert",
+        text: "...ha sok időt tölthetek tanulással azért, hogy többismeretre tegyek szert",
         value: 20,
       },
       {
@@ -93,15 +93,15 @@ export const quizData: Quiz = [
         value: 21,
       },
       {
-        text: "...ha szenvedéseim közepette, bizonyságot tehetek, ahelyes életszemléletrõl",
+        text: "...ha szenvedéseim közepette, bizonyságot tehetek, ahelyes életszemléletről",
         value: 22,
       },
       {
-        text: "...ha emberekkel törõdhetek, akik a társadalom pereménélnek",
+        text: "...ha emberekkel törődhetek, akik a társadalom pereménélnek",
         value: 23,
       },
       {
-        text: "...ha olyan dolgokért imádkozhatok, melyek áttörik atermészeti törvényeket (Isten csodás beavatkozásáért )",
+        text: "...ha olyan dolgokért imádkozhatok, melyek áttörik atermészeti törvényeket (Isten csodás beavatkozásáért)",
         value: 24,
       },
       {
@@ -109,15 +109,15 @@ export const quizData: Quiz = [
         value: 25,
       },
       {
-        text: "...ha törõdhetek mások lelki szükségeivel, és hosszankísérhetem õket",
+        text: "...ha törődhetek mások lelki szükségeivel, és hosszankísérhetem őket",
         value: 26,
       },
       {
-        text: "...ha szócsõ lehetek abban, hogy Isten konkrét üzenetetadhasson a gyülekezetnek, adott helyzetükben",
+        text: "...ha szócső lehetek abban, hogy Isten konkrét üzenetetadhasson a gyülekezetnek, adott helyzetükben",
         value: 27,
       },
       {
-        text: "...ha a gyülekezetben átvehetek jelentéktelennek tûnõfeladatokat",
+        text: "...ha a gyülekezetben átvehetek jelentéktelennek tűnőfeladatokat",
         value: 28,
       },
       {
@@ -125,7 +125,7 @@ export const quizData: Quiz = [
         value: 29,
       },
       {
-        text: "...ha gondolataimat mûvészi eszközökkel fejezhetem ki( festés, grafika, pantomim stb. )",
+        text: "...ha gondolataimat művészi eszközökkel fejezhetem ki (festés, grafika, pantomim stb.)",
         value: 30,
       },
     ],
@@ -133,9 +133,9 @@ export const quizData: Quiz = [
   {
     sectionName: "Jobban szeretnék mint eddig...",
     answers: [
-      { text: "kimondottan", value: 8 },
-      { text: "szívesen", value: 6 },
-      { text: "nagyon szívesen", value: 4 },
+      { text: "kimondottan szívesen", value: 8 },
+      { text: "nagyon szívesen", value: 6 },
+      { text: "szívesen", value: 4 },
       { text: "nem szívesen", value: 2 },
       { text: "nem", value: 0 },
     ],
@@ -145,69 +145,69 @@ export const quizData: Quiz = [
         value: 31,
       },
       {
-        text: "...hogy legyen kapcsolatom más kultúrában élõ emberekkel",
+        text: "...hogy legyen kapcsolatom más kultúrában élő emberekkel",
         value: 32,
       },
       {
-        text: "...azzal foglalkozni, hogy Isten akarata-e velemkapcsolatban az, hogy megházasodjak-e vagy sem",
+        text: "...azzal foglalkozni, hogy Isten akarata-e velem kapcsolatban az, hogy megházasodjak-e vagy sem",
         value: 33,
       },
       {
-        text: "...mások szavaival, tanításaival foglalkozni, és összemérnia Biblia tanításával",
+        text: "...mások szavaival, tanításaival foglalkozni, és összemérni a Biblia tanításával",
         value: 34,
       },
       {
-        text: "...nem hívõkkel szóbaelegyedni az Úr Jézus Krisztusbavetett hitrõl beszélgetni",
+        text: "...nem hívőkkel szóbaelegyedni az Úr Jézus Krisztusba vetett hitről beszélgetni",
         value: 35,
       },
       {
-        text: "...a baráti körömön kívül élõknek személyesen segíteni,õket támogatni",
+        text: "...a baráti körömön kívül élőknek személyesen segíteni, őket támogatni",
         value: 36,
       },
       {
-        text: "...odafigyelni arra, hogy látással rendelkezõ testvérek adjákmeg a gyülekezetben a hangot",
+        text: "...odafigyelni arra, hogy látással rendelkező testvérek adjákmeg a gyülekezetben a hangot",
         value: 37,
       },
       {
-        text: "...hogy kapcsolatba kerüljek a projektért felelõsökkel, hogytámogathassam õket adományommal",
+        text: "...hogy kapcsolatba kerüljek a projektért felelősökkel, hogy támogathassam őket adományommal",
         value: 38,
       },
       {
-        text: "...hogy Isten használhasson, a démonikus erõk elleniharcban",
+        text: "...hogy Isten használhasson, a démonikus erők elleni harcban",
         value: 39,
       },
       {
-        text: "...hogy eszközként szolgálhassak úgy, hogy Istentermészetfeletti gyógyulást adhasson",
+        text: "...hogy eszközként szolgálhassak úgy, hogy Isten természetfeletti gyógyulást adhasson",
         value: 40,
       },
       {
-        text: "...idõt befektetni arra, hogy tesvéreimhez információkat,felismeréseket juttassak",
+        text: "...időt befektetni arra, hogy tesvéreimhez információkat, felismeréseket juttassak",
         value: 41,
       },
       {
-        text: "...hogy Istennel való beszélgetésben áttörve a racionálison,új nyelveken szólhassak",
+        text: "...hogy Istennel való beszélgetésben áttörve a racionálison, új nyelveken szólhassak",
         value: 42,
       },
       {
-        text: "...Embereknek, vagy szervezeteknek segíteni szeretnék,hogy találjanak hatásos utat céljuk elérésére",
+        text: "...Embereknek, vagy szervezeteknek segíteni szeretnék, hogy találjanak hatásos utat céljuk elérésére",
         value: 43,
       },
       { text: "...hogy életnívómat lejjebb szállítsam", value: 44 },
       {
-        text: "...kezeimet használva, valami egészen gyakorlatit szeretnékIstenért tenni",
+        text: "...kezeimet használva, valami egészen gyakorlatit szeretnék Istenért tenni",
         value: 45,
       },
       {
-        text: "...Más keresztyéneket úgy támogatni, hogy az énajándékaimat az õ szolgálatukba fektetem be",
+        text: "...Más keresztyéneket úgy támogatni, hogy az énajándékaimat az ő szolgálatukba fektetem be",
         value: 46,
       },
       {
         text: "...Otthonomban olyan légkört teremteni embereknek, hogyjól érezzék magukat",
         value: 47,
       },
-      { text: "...Több idõt imádságra szánni", value: 48 },
+      { text: "...Több időt imádságra szánni", value: 48 },
       {
-        text: "...Eszköz lenni abban, hogy ha valaki nyelveken szól, énérthetõ nyelven adjam tovább",
+        text: "...Eszköz lenni abban, hogy ha valaki nyelveken szól, én érthető nyelven adjam tovább",
         value: 49,
       },
       {
@@ -219,33 +219,33 @@ export const quizData: Quiz = [
         value: 51,
       },
       {
-        text: "...Olyan helyzetekben megállni, ahol a hit, személyesáldozattal jár",
+        text: "...Olyan helyzetekben megállni, ahol a hit, személyes áldozattal jár",
         value: 52,
       },
       {
-        text: "...Olyan emberekkel foglalkozni, akiket a társadalomelhanyagolt, vagy kiközösített",
+        text: "...Olyan emberekkel foglalkozni, akiket a társadalom elhanyagolt, vagy kiközösített",
         value: 53,
       },
       {
-        text: "...megtapasztalni, hogy Isten használ jelek és csodáktételében",
+        text: "...megtapasztalni, hogy Isten használ jelek és csodák tételében",
         value: 54,
       },
       {
-        text: "...Új gyülekezetek létrejöttén fáradni, és így olyanembereket elérni, akikhez másként nem jut el az örömhír",
+        text: "...Új gyülekezetek létrejöttén fáradni, és így olyan embereket elérni, akikhez másként nem jut el az örömhír",
         value: 55,
       },
-      { text: "...Hívõket segíteni, hitük növekedésében", value: 56 },
+      { text: "...Hívőket segíteni, hitük növekedésében", value: 56 },
       {
-        text: "...Hívõknek segíteni felismeni, hogy mi Isten akarata, azadott helyzetben",
+        text: "...Hívőknek segíteni felismeni, hogy mi Isten akarata, azadott helyzetben",
         value: 57,
       },
       {
-        text: "...Rendelkezésre állni, ha a gyülekezetben valamilyenfeladatot meg kell oldani",
+        text: "...Rendelkezésre állni, ha a gyülekezetben valamilyen feladatot meg kell oldani",
         value: 58,
       },
       { text: "...Istent muzsikával szolgálni", value: 59 },
       {
-        text: "...Érzelmeimet kreatív módon kifejezni ( jelenet, festészet,kerámia, stb )",
+        text: "...Érzelmeimet kreatív módon kifejezni (jelenet, festészet,kerámia, stb)",
         value: 60,
       },
     ],
@@ -261,43 +261,43 @@ export const quizData: Quiz = [
     ],
     questions: [
       {
-        text: "...Hogy olyan terveket dolgozhattam ki, ami által, agyülekezet munkáját, racionálisabban lehet végezni",
+        text: "...Hogy olyan terveket dolgozhattam ki, ami által, a gyülekezet munkáját, racionálisabban lehet végezni",
         value: 61,
       },
       {
-        text: "...Hogy más kultúrkörhöz tartozó emberek vonzódtakhozzám",
+        text: "...Hogy más kultúrkörhöz tartozó emberek vonzódtak hozzám",
         value: 62,
       },
       {
-        text: "...Hogy egyedülállóként több erõm van Isten szolgálatára( Házasok, a jobb szélsõt jelöljék )",
+        text: "...Hogy egyedülállóként több erőm van Isten szolgálatára (házasok jelöljék az utolsó opciót)",
         value: 63,
       },
       {
-        text: "...Hogy felismertem a rossz motivációt, a kegyesen hangzómondatok mögött",
+        text: "...Hogy felismertem a rossz motivációt, a kegyesen hangzó mondatok mögött",
         value: 64,
       },
       {
-        text: "...Hogy Isten használt engem, mások Jézus Krisztusbanvaló hitre segítésére",
+        text: "...Hogy Isten használt engem, mások Jézus Krisztusban való hitre segítésére",
         value: 65,
       },
       {
-        text: "...Hogy némelyek azt mondják, hogy a vígasztalásom,bíztatásom, nagyon sokat jelentett nekik",
+        text: "...Hogy némelyek azt mondják, hogy a vígasztalásom, bíztatásom, nagyon sokat jelentett nekik",
         value: 66,
       },
       {
-        text: "...Hogy némelyek álmodozónak tartanak, mert szerintükutópisztikus célokat tûzök magam elé",
+        text: "...Hogy némelyek álmodozónak tartanak, mert szerintük utópisztikus célokat tűzök magam elé",
         value: 67,
       },
       {
-        text: "...Hogy egy jelentõs pénzmennyiség odaadásával, másokonsegíthettem",
+        text: "...Hogy egy jelentős pénzmennyiség odaadásával, másokon segíthettem",
         value: 68,
       },
       {
-        text: "...Hogy emberek imádságom által szabadok lettekdémonikus kötöttségüktõl",
+        text: "...Hogy emberek imádságom által szabadok lettek démonikus kötöttségüktől",
         value: 69,
       },
       {
-        text: "...Hogy Isten meggyógyított testi-lelki betegeket,imádságom meghallgatásaként",
+        text: "...Hogy Isten meggyógyított testi-lelki betegeket, imádságom meghallgatásaként",
         value: 70,
       },
       {
@@ -305,15 +305,15 @@ export const quizData: Quiz = [
         value: 71,
       },
       {
-        text: "...Hogy egy számomra ismeretlen nyelven imádkoztamIstenhez",
+        text: "...Hogy egy számomra ismeretlen nyelven imádkoztam Istenhez",
         value: 72,
       },
       {
-        text: "...Hogy némelyek bonyolult probléma megoldásábantanácsot kértek tõlem, és ez segített nekik",
+        text: "...Hogy némelyek bonyolult probléma megoldásában tanácsot kértek tőlem, és ez segített nekik",
         value: 73,
       },
       {
-        text: "...Hogy jobban hozzá tudok férkõzni egyszerû emberekhez,mert úgy döntöttem, hogy nagyon egyszerû életet élek",
+        text: "...Hogy jobban hozzá tudok férkőzni egyszerű emberekhez, mert úgy döntöttem, hogy nagyon egyszerű életet élek",
         value: 74,
       },
       {
@@ -321,7 +321,7 @@ export const quizData: Quiz = [
         value: 75,
       },
       {
-        text: "...felelõs pozicíóban levõ testvérek jobban végezhetnékfeladatukat, mert átvettem tõlük részfeladatokat",
+        text: "...felelős pozicíóban levő testvérek jobban végezhetnék feladatukat, mert átvettem tőlük részfeladatokat",
         value: 76,
       },
       {
@@ -329,7 +329,7 @@ export const quizData: Quiz = [
         value: 77,
       },
       {
-        text: "...Isten egyértelmûen avatkozott be, amikor bizonyosdolgok megoldásáért imádkoztam",
+        text: "...Isten egyértelműen avatkozott be, amikor bizonyos dolgok megoldásáért imádkoztam",
         value: 78,
       },
       {
@@ -337,14 +337,14 @@ export const quizData: Quiz = [
         value: 79,
       },
       {
-        text: "...elsõként általam hozott javaslatok késõbb beváltak",
+        text: "...elsőként általam hozott javaslatok később beváltak",
         value: 80,
       },
       {
-        text: "...más keresztyéneket motiválhattam, hogy dolgozzanakbizonyos célok elérése érdekében",
+        text: "...más keresztyéneket motiválhattam, hogy dolgozzanak bizonyos célok elérése érdekében",
         value: 81,
       },
-      { text: "...szenvedésem másokat megerõsített", value: 82 },
+      { text: "...szenvedésem másokat megerősített", value: 82 },
       {
         text: "...embereken akik szükségben voltak, segíthettem agyakorlatban",
         value: 83,
@@ -354,15 +354,15 @@ export const quizData: Quiz = [
         value: 84,
       },
       {
-        text: "...más gyülekezetek vezetõi figyelembe vették, alkalmaztáktanácsaimat",
+        text: "...más gyülekezetek vezetői figyelembe vették, alkalmazták tanácsaimat",
         value: 85,
       },
       {
-        text: "...hívõket hosszútávú személyes kapcsolatápolássalsegíthettem a lelki fejlõdésben",
+        text: "...hívőket hosszútávú személyes kapcsolatápolással segíthettem a lelki fejlődésben",
         value: 86,
       },
       {
-        text: "...némelyek azt mondják, hogy amit én mondtam nekik, azIstentõl való üzenet volt az életükben",
+        text: "...némelyek azt mondják, hogy amit én mondtam nekik, az Istentől való üzenet volt az életükben",
         value: 87,
       },
       {
@@ -370,11 +370,11 @@ export const quizData: Quiz = [
         value: 88,
       },
       {
-        text: "...muzikális képességeimmel másoknak szolgáltam,erõsítettem õket",
+        text: "...muzikális képességeimmel másoknak szolgáltam, erősítettem őket",
         value: 89,
       },
       {
-        text: "...kreatív lépességeimet Isten dicsõítésére használhattam",
+        text: "...kreatív lépességeimet Isten dicsőítésére használhattam",
         value: 90,
       },
     ],
@@ -398,55 +398,55 @@ export const quizData: Quiz = [
         value: 92,
       },
       {
-        text: "...Azonosulni tudok Pál azon mondatával, hogy mások ismaradjanak házasság nélkül, mint õ",
+        text: "...Azonosulni tudok Pál azon mondatával, hogy mások is maradjanak házasság nélkül, mint ő",
         value: 93,
       },
       {
-        text: "...Nagyon nyugtalanít, ha valaki valami jó dolgot mond,a motivációja azonban nem tiszta",
+        text: "...Nagyon nyugtalanít, ha valaki valami jó dolgot mond, a motivációja azonban nem tiszta",
         value: 94,
       },
       {
-        text: "...Nagy problémát jelent nekem, hogy nagyon sokan nemtesznek bizonyságot hitükrõl",
+        text: "...Nagy problémát jelent nekem, hogy nagyon sokan nem tesznek bizonyságot hitükről",
         value: 95,
       },
       {
-        text: "...Ha emberek a problémákról beszélnek nekem, többeggyüttérzés van bennem ( mint talán másokban )",
+        text: "...Ha emberek a problémákról beszélnek nekem, több eggyüttérzés van bennem (mint talán másokban)",
         value: 96,
       },
       {
-        text: "...Számomra teljesen világos, hogy Isten akkor is megtartjaszavát, ha a körülmények mást mutatnak",
+        text: "...Számomra teljesen világos, hogy Isten akkor is megtartja szavát, ha a körülmények mást mutatnak",
         value: 97,
       },
       {
-        text: "...Személyes megszólítottságot érzek, ha mások anyagiproblémáiról hallok",
+        text: "...Személyes megszólítottságot érzek, ha mások anyagi problémáiról hallok",
         value: 98,
       },
       {
-        text: "...Engem nagyon zavar, ha vannak hívõk, akik nem ishiszik, hogy léteznek démonok",
+        text: "...Engem nagyon zavar, ha vannak hívők, akik nem is hiszik, hogy léteznek démonok",
         value: 99,
       },
       {
-        text: "...Engem nagyon zavar, ha a gyülekezetben kevesetimádkozunk betegekért",
+        text: "...Engem nagyon zavar, ha a gyülekezetben keveset imádkozunk betegekért",
         value: 100,
       },
       {
-        text: "...Szenvedek attól, hogy csak nagyon kevés hívõ tudjaismeretét, érthetõen, élvezhetõen elõadni",
+        text: "...Szenvedek attól, hogy csak nagyon kevés hívő tudja ismeretét, érthetően, élvezhetően előadni",
         value: 101,
       },
       {
-        text: "...Jól érzem magam olyan csoportban, ahol nyelvekenimádkoznak",
+        text: "...Jól érzem magam olyan csoportban, ahol nyelveken imádkoznak",
         value: 102,
       },
       {
-        text: "...Fontosnak tartom, hogy a gyülekezet tapasztaltszakemberektõl tanácsot fogadjon el",
+        text: "...Fontosnak tartom, hogy a gyülekezet tapasztalt szakemberektől tanácsot fogadjon el",
         value: 103,
       },
       {
-        text: "...Nekem problémát okoz az, hogy nagyon sok hívõ emberanyagilag túlzottan jó körülmények között él",
+        text: "...Nekem problémát okoz az, hogy nagyon sok hívő ember anyagilag túlzottan jó körülmények között él",
         value: 104,
       },
       {
-        text: "...Engem zavar, ha épületek, eszközök, stb. rossz állapotbanvannak, nem használják õket rendeltetésszerûen",
+        text: "...Engem zavar, ha épületek, eszközök, stb. rossz állapotban vannak, nem használják őket rendeltetésszerűen",
         value: 105,
       },
     ],
@@ -462,31 +462,31 @@ export const quizData: Quiz = [
     ],
     questions: [
       {
-        text: "...Nekem jólesik olyan szolgálatot is elvégezni, amit másoknem tartanak elég látványosnak",
+        text: "...Nekem jólesik olyan szolgálatot is elvégezni, amit mások nem tartanak elég látványosnak",
         value: 106,
       },
       {
-        text: "...Akkor is tudok örülni elõre nem jelzett vendégeknek, hanincs rendben a lakásom",
+        text: "...Akkor is tudok örülni előre nem jelzett vendégeknek, ha nincs rendben a lakásom",
         value: 107,
       },
       {
-        text: "...Másoktól hallott imatémákat komolyan veszem, ésrendszeresen imádkozom értük",
+        text: "...Másoktól hallott imatémákat komolyan veszem, és rendszeresen imádkozom értük",
         value: 108,
       },
       {
-        text: "...Ha valaki nyelveken szól, azért imádkozom, hogymegmagyarázhassam",
+        text: "...Ha valaki nyelveken szól, azért imádkozom, hogy megmagyarázhassam",
         value: 109,
       },
       {
-        text: "...Szívesen foglalkozom bibliai összefüggésekkel, és ezekalkalmazásával a mindennapi életben",
+        text: "...Szívesen foglalkozom bibliai összefüggésekkel, és ezek alkalmazásával a mindennapi életben",
         value: 110,
       },
       {
-        text: "...Fontosnak tartom, hogy egy keresztyén csoportot jóképességû vezetõ vezessen",
+        text: "...Fontosnak tartom, hogy egy keresztyén csoportot jóképességű vezető vezessen",
         value: 111,
       },
       {
-        text: "...Keresztyén mártírokról szóló beszámolók elbûvölnekengem",
+        text: "...Keresztyén mártírokról szóló beszámolók elbűvölnek engem",
         value: 112,
       },
       {
@@ -494,31 +494,31 @@ export const quizData: Quiz = [
         value: 113,
       },
       {
-        text: "...Imádkozom azért, hogy Isten általam is tegyen csodát,mint tette ezt az elsõ keresztyének idejében",
+        text: "...Imádkozom azért, hogy Isten általam is tegyen csodát, mint tette ezt az első keresztyének idejében",
         value: 114,
       },
       {
-        text: "...Nagyon fontosnak tartom, hogy legyen egység agyülekezetek között",
+        text: "...Nagyon fontosnak tartom, hogy legyen egység a gyülekezetek között",
         value: 115,
       },
       {
-        text: "...Nagyon nyomaszt, hogy keresztyének, testileg és lelkilegsem részesülnek elégséges gondozásban, támogatásban",
+        text: "...Nagyon nyomaszt, hogy keresztyének, testileg és lelkileg sem részesülnek elégséges gondozásban, támogatásban",
         value: 116,
       },
       {
-        text: "...Imádkozom azért, hogy Isten még közvetlenebbül szóljonhozzám, mint ahogyan ma tapasztalom",
+        text: "...Imádkozom azért, hogy Isten még közvetlenebbül szóljon hozzám, mint ahogyan ma tapasztalom",
         value: 117,
       },
       {
-        text: "...Észreveszem, ha másoknak gyakorlati segítségre vanszüksége, kész is vagyok segíteni",
+        text: "...Észreveszem, ha másoknak gyakorlati segítségre van szüksége, kész is vagyok segíteni",
         value: 118,
       },
       {
-        text: "....Elszomorít, ha kevés hangsúlyt helyezneka gyülekezetben a muzsikára",
+        text: "....Elszomorít, ha kevés hangsúlyt helyeznek a gyülekezetben a muzsikára",
         value: 119,
       },
       {
-        text: "...Az a vágyam, hogy a hívõk tartsák szép rendbenkörnyezetüket",
+        text: "...Az a vágyam, hogy a hívők tartsák szép rendben környezetüket",
         value: 120,
       },
     ],
@@ -526,7 +526,7 @@ export const quizData: Quiz = [
   {
     sectionName: "Tetszik nekem...",
     description:
-      "Ha a következõ állításokkal kapcsolatban még nem volt tapasztalatod, jelöld a jobb oldali oszlopot.",
+      "Ha még nincs tapasztalatod a következő területeken, jelöld meg az utolsó opciót.",
     answers: [
       { text: "nagyon k0nnyű", value: 9 },
       { text: "könnyű", value: 7 },
@@ -540,43 +540,43 @@ export const quizData: Quiz = [
         value: 121,
       },
       {
-        text: "...megtalálni emberekhez az utat, akiknek egészen máséletstílusuk van mint nekem",
+        text: "...megtalálni emberekhez az utat, akiknek egészen más életstílusuk van mint nekem",
         value: 122,
       },
       {
-        text: "...hogy figyelmen kívül hagyjam a családalapítást ( házasokjelöljék a jobboldali oszlopot )",
+        text: "...hogy figyelmen kívül hagyjam a családalapítást (házasok jelöljék az utolsó opciót)",
         value: 123,
       },
       {
-        text: "...hogy megvizsgáljam, hogy az adott szavak, isteni,emberi, vagy sátáni eredetûek-e",
+        text: "...hogy megvizsgáljam, hogy az adott szavak, isteni, emberi, vagy sátáni eredetűek-e",
         value: 124,
       },
       {
-        text: "...hogy megállapítsam annak idõpontját, hogy mikor mijátszódik le a másikban, és segítõ módon viselkedjek",
+        text: "...hogy megállapítsam annak időpontját, hogy mikor mi játszódik le a másikban, és segítő módon viselkedjek",
         value: 125,
       },
       {
-        text: "...hogy egy beszélgetésben pontosan megtudjam, hogy mijátszódik le a másikban, és segítõ módon viselkedjek",
+        text: "...hogy egy beszélgetésben pontosan megtudjam, hogy mi játszódik le a másikban, és segítő módon viselkedjek",
         value: 126,
       },
       {
-        text: "...hogy olyan dolgokért imádkozzam és dolgozzam,melyeket mások lehetetlennek tartanak",
+        text: "...hogy olyan dolgokért imádkozzam és dolgozzam, melyeket mások lehetetlennek tartanak",
         value: 127,
       },
       {
-        text: "...hogy jövedelmem egy fontos hányadát, rendszeresenIsten ügyére fordíthatom",
+        text: "...hogy jövedelmem egy fontos hányadát, rendszeresen Isten ügyére fordíthatom",
         value: 128,
       },
       {
-        text: "...ha észrevehetem, hogy van-e valakinek az életébendémonikus befolyás, terület",
+        text: "...ha észrevehetem, hogy van-e valakinek az életében démonikus befolyás, terület",
         value: 129,
       },
       {
-        text: "...ha személyesen és konkrétan imádkozhatok betegekgyógyulásáért",
+        text: "...ha személyesen és konkrétan imádkozhatok betegek gyógyulásáért",
         value: 130,
       },
       {
-        text: "...ha információkat logikusan, érdekesen és érthetõenadhatok tovább a hallgatóságnak",
+        text: "...ha információkat logikusan, érdekesen és érthetően adhatok tovább a hallgatóságnak",
         value: 131,
       },
       { text: "...ha nyelveken imádkozhatok", value: 132 },
@@ -590,7 +590,7 @@ export const quizData: Quiz = [
         value: 135,
       },
       {
-        text: "...hogy más hívõktõl, szolgálatot vegyek át, hogy õk jobbanvégezhessék az õ szolgálatukat",
+        text: "...hogy más hívőktől, szolgálatot vegyek át, hogy ők jobban végezhessék az ő szolgálatukat",
         value: 136,
       },
       {
@@ -602,11 +602,11 @@ export const quizData: Quiz = [
         value: 138,
       },
       {
-        text: "...ha megérezhetem, hogy mit akar Isten mondani,nyelveken",
+        text: "...ha megérezhetem, hogy mit akar Isten mondani, nyelveken",
         value: 139,
       },
       {
-        text: "...ha tényeket fedezhetek fel, és szisztematikusanmegfogalmazhatok, melyek a gyülekezet építésére vannak",
+        text: "...ha tényeket fedezhetek fel, és szisztematikusan megfogalmazhatok, melyek a gyülekezet építésére vannak",
         value: 140,
       },
       { text: "...ha másokat feladattal bízhatok meg", value: 141 },
@@ -615,7 +615,7 @@ export const quizData: Quiz = [
         value: 142,
       },
       {
-        text: "...ha kifejezhetem együttérzésemet, szükségben levõembereknek",
+        text: "...ha kifejezhetem együttérzésemet, szükségben levő embereknek",
         value: 143,
       },
       {
@@ -623,15 +623,15 @@ export const quizData: Quiz = [
         value: 144,
       },
       {
-        text: "...ha csoportokat, gyülekezeteket tanácsolhatok szellemiállapotukat illetõen",
+        text: "...ha csoportokat, gyülekezeteket tanácsolhatok szellemi állapotukat illetően",
         value: 145,
       },
       {
-        text: "...ha keresztyének csoportját személyesen kísérhetem, ésha dolgozhatok egységükért",
+        text: "...ha keresztyének csoportját személyesen kísérhetem, és ha dolgozhatok egységükért",
         value: 146,
       },
       {
-        text: "...ha Istentõl felvilágosítást kapok arra, hogy bizonyoshelyzetben mi az Õ akarata",
+        text: "...ha Istentől felvilágosítást kapok arra, hogy bizonyos helyzetben mi az ő akarata",
         value: 147,
       },
       {
@@ -639,11 +639,11 @@ export const quizData: Quiz = [
         value: 148,
       },
       {
-        text: "...ha mások jelenlétében Isten dicsõségére zenélhetek,énekelhetek",
+        text: "...ha mások jelenlétében Isten dicsőségére zenélhetek, énekelhetek",
         value: 149,
       },
       {
-        text: "...ha kreatív lehetek, és így kommunikálhatok ( festés, rajz,pantomim, jelenet, bábjáték stb. )",
+        text: "...ha kreatív lehetek, és így kommunikálhatok (festés, rajz, pantomim, jelenet, bábjáték stb. )",
         value: 150,
       },
     ],
@@ -659,27 +659,27 @@ export const quizData: Quiz = [
     ],
     questions: [
       {
-        text: "...képzéseken vegyek részt, melyek segítenek abban, hogy atervezésben, szervezésben és mások bevonásában fejlõdjek",
+        text: "...képzéseken vegyek részt, melyek segítenek abban, hogy a tervezésben, szervezésben és mások bevonásában fejlődjek",
         value: 151,
       },
       {
-        text: "...egy idegen kultúrában dolgozzak, ha erre lehetõség nyílik",
+        text: "...egy idegen kultúrában dolgozzak, ha erre lehetőség nyílik",
         value: 152,
       },
       {
-        text: "...hajadon, vagy nõtlen maradjak, hogy ezáltal többetdolgozhassak Isten országáért (a házasok jelöljék a jobb oszlopot )",
+        text: "...hajadon, vagy nőtlen maradjak, hogy ezáltal többet dolgozhassak Isten országáért (házasok jelöljék az utolsó opciót)",
         value: 153,
       },
       {
-        text: "...hogy sok idõt töltsek a Bibila, és más irodalom alapostanulmányozásával, tisztább látásért, a különbségtételre",
+        text: "...hogy sok időt töltsek a Bibila, és más irodalom alapos tanulmányozásával, tisztább látásért, a különbségtételre",
         value: 154,
       },
       {
-        text: "...olyan tanfolyamon vegyek részt, ahol abban segíthetek,hogy hogyan lehet valakit hitre segíteni",
+        text: "...olyan tanfolyamon vegyek részt, ahol abban segíthetek, hogy hogyan lehet valakit hitre segíteni",
         value: 155,
       },
       {
-        text: "...hogy tanuljak arról, hogyan tudok másoknak rendszeresbeszélgetés által segíteni",
+        text: "...hogy tanuljak arról, hogyan tudok másoknak rendszeres beszélgetés által segíteni",
         value: 156,
       },
       {
@@ -691,7 +691,7 @@ export const quizData: Quiz = [
         value: 158,
       },
       {
-        text: "...hogy szembeszáljak démonikus erõkkel, ha mások issegítenek ebben nekem",
+        text: "...hogy szembeszáljak démonikus erőkkel, ha mások is segítenek ebben nekem",
         value: 159,
       },
       {
@@ -699,7 +699,7 @@ export const quizData: Quiz = [
         value: 160,
       },
       {
-        text: "...több irodalmat olvassak a komunkikációról, hogyképességeimet növeljem ezen a területen",
+        text: "...több irodalmat olvassak a komunkikációról, hogy képességeimet növeljem ezen a területen",
         value: 161,
       },
       {
@@ -707,19 +707,19 @@ export const quizData: Quiz = [
         value: 162,
       },
       {
-        text: "...sok idõt szenteljek annak, hogy embereket, csoportokattanácsoljak nehéz döntéseikben",
+        text: "...sok időt szenteljek annak, hogy embereket, csoportokat tanácsoljak nehéz döntéseikben",
         value: 163,
       },
       {
-        text: "...szükség szerint lemondjak jó ételrõl, kényelmesotthonról, drága ruháról",
+        text: "...szükség szerint lemondjak jó ételről, kényelmes otthonról, drága ruháról",
         value: 164,
       },
       {
-        text: "...szükség esetén a gyülekezetben elõforduló munkában,részt vegyek, segítsek",
+        text: "...szükség esetén a gyülekezetben előforduló munkában, részt vegyek, segítsek",
         value: 165,
       },
       {
-        text: "...túlterhelt keresztyének munkáján könnyítsek úgy, hogytámogatom õket szolgálatukban",
+        text: "...túlterhelt keresztyének munkáján könnyítsek úgy, hogy támogatom őket szolgálatukban",
         value: 166,
       },
       {
@@ -727,7 +727,7 @@ export const quizData: Quiz = [
         value: 167,
       },
       {
-        text: "...egy gyülekezeti csoportban dolgozzak, akik folyamatosimaszolgálatot végeznek",
+        text: "...egy gyülekezeti csoportban dolgozzak, akik folyamatos imaszolgálatot végeznek",
         value: 168,
       },
       {
@@ -735,7 +735,7 @@ export const quizData: Quiz = [
         value: 169,
       },
       {
-        text: "...sok idõt szánjak annak kutatására, hogy amik azok a dolgok, melyek elõsegítik a gyülekezet egészséges fejlõdését",
+        text: "...sok időt szánjak annak kutatására, hogy mik azok a dolgok, melyek elősegítik a gyülekezet egészséges fejlődését",
         value: 170,
       },
       {
@@ -747,35 +747,35 @@ export const quizData: Quiz = [
         value: 172,
       },
       {
-        text: "...olyan gyülekezeti szolgálatban vegyek részt, akik törõdneka társadalom peremén élõkkel",
+        text: "...olyan gyülekezeti szolgálatban vegyek részt, akik törődnek a társadalom peremén élőkkel",
         value: 173,
       },
       {
-        text: "...imádságban, olyan esetekre koncentráljak, melyekemberi számítás szerint kilátástalanok",
+        text: "...imádságban, olyan esetekre koncentráljak, melyek emberi számítás szerint kilátástalanok",
         value: 174,
       },
       {
-        text: "...gyülekezetek között fennálló konfliktusok megoldásábansegítsek",
+        text: "...gyülekezetek között fennálló konfliktusok megoldásában segítsek",
         value: 175,
       },
       {
-        text: "...átvegyem a felelõsségét, egy hívõkbõl álló csoportvezetésének",
+        text: "...átvegyem a felelősségét, egy hívőkből álló csoport vezetésének",
         value: 176,
       },
       {
-        text: "...gyülekezeti tagoknak Istentõl vett üzeneteket közvetítsek,akkor is, ha ez kényelmetlen néha",
+        text: "...gyülekezeti tagoknak Istentől vett üzeneteket közvetítsek, akkor is, ha ez kényelmetlen néha",
         value: 177,
       },
       {
-        text: "...idõt szánjak a gyülekezetben olyan dolgokra, melyek alegsürgõsebben elvégzendõk",
+        text: "...időt szánjak a gyülekezetben olyan dolgokra, melyek a legsürgősebben elvégzendők",
         value: 178,
       },
       {
-        text: "...eggyüttmûködjek a gyülekezet zenei életében",
+        text: "...eggyüttműködjek a gyülekezet zenei életében",
         value: 179,
       },
       {
-        text: "...olyan gyülekezeti csoportban dolgozzam, ahol lehetõségvan a mûvészi képességek kifejlesztésére",
+        text: "...olyan gyülekezeti csoportban dolgozzam, ahol lehetőség van a művészi képességek kifejlesztésére",
         value: 180,
       },
     ],
