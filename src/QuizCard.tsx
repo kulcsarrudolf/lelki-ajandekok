@@ -77,6 +77,14 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
     if (lastQuestionNumber) {
       setCurrentQuestionNumber(Number(lastQuestionNumber.value));
     }
+
+    const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
+
+    if (localStorageAnswers) {
+      const currentAnswers = JSON.parse(localStorageAnswers.value);
+
+      setAnswers(currentAnswers);
+    }
   }, []);
 
   return (

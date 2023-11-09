@@ -524,15 +524,15 @@ export const quizData: Quiz = [
     ],
   },
   {
-    sectionName: "Tetszik nekem...",
+    sectionName: "Kedvemre van...",
     description:
       "Ha még nincs tapasztalatod ezen a területen, jelöld meg az utolsó opciót.",
     answers: [
-      { text: "nagyon könnyű", value: 9 },
-      { text: "könnyű", value: 7 },
-      { text: "közepesen", value: 4 },
-      { text: "nehéz", value: 2 },
-      { text: "nagyon nehéz", value: 0 },
+      { text: "nagyon erősen", value: 9 },
+      { text: "erősen", value: 7 },
+      { text: "kevésbé", value: 4 },
+      { text: "gyengén", value: 2 },
+      { text: "nem", value: 0 },
     ],
     questions: [
       {
