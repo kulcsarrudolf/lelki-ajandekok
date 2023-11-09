@@ -43,7 +43,9 @@ const getResults = (answers: any[]) => {
   let partBResult = calculateScoresForPart(gifts, answersCopy, "partB");
 
   partAResult = sortResultsDesc(partAResult).slice(0, 5);
-  partBResult = sortResultsDesc(partBResult).slice(0, 5);
+  partBResult = sortResultsDesc(partBResult)
+    .filter((r) => partBResult.map((r) => r.gift).includes(r.gift))
+    .slice(0, 5);
 
   return { partAResult, partBResult };
 };
