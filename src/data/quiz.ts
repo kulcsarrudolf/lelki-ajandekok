@@ -81,7 +81,7 @@ export const quizData: Quiz = [
         value: 18,
       },
       {
-        text: "...ha valakinek a nyelveken szólásból kihallhatom Isten üzenetét számunkra",
+        text: "...ha valakinek a nyelveken szólásából kihallhatom Isten üzenetét számunkra",
         value: 19,
       },
       {
@@ -321,7 +321,7 @@ export const quizData: Quiz = [
         value: 75,
       },
       {
-        text: "...felelős pozicíóban levő testvérek jobban végezhetnék feladatukat, mert átvettem tőlük részfeladatokat",
+        text: "...felelős pozicíóban levő testvérek jobban végezhették feladatukat, mert átvettem tőlük részfeladatokat",
         value: 76,
       },
       {
@@ -390,7 +390,7 @@ export const quizData: Quiz = [
     ],
     questions: [
       {
-        text: "...negtervezem a napomat, és nem bízom a dolgokat a véletlenre",
+        text: "...megtervezem a napomat, és nem bízom a dolgokat a véletlenre",
         value: 91,
       },
       {
@@ -552,7 +552,7 @@ export const quizData: Quiz = [
         value: 124,
       },
       {
-        text: "...hogy megállapítsam annak időpontját, hogy mikor mi játszódik le a másikban, és segítő módon viselkedjek",
+        text: "...hogy figyeljek másokra, és segítő módon viselkedjek",
         value: 125,
       },
       {
@@ -643,7 +643,7 @@ export const quizData: Quiz = [
         value: 149,
       },
       {
-        text: "...ha kreatív lehetek, és így kommunikálhatok (festés, rajz, pantomim, jelenet, bábjáték stb. )",
+        text: "...ha kreatív lehetek, és így kommunikálhatok (festés, rajz, pantomim, színdarab, bábjáték stb. )",
         value: 150,
       },
     ],
@@ -653,9 +653,9 @@ export const quizData: Quiz = [
     answers: [
       { text: "nagyon szívesen", value: 7 },
       { text: "szívesen", value: 5 },
-      { text: "adott esetekben", value: 2 },
-      { text: "szükség esetben", value: 1 },
-      { text: "semmi esetre", value: 0 },
+      { text: "adott esetben", value: 2 },
+      { text: "szükség esetén", value: 1 },
+      { text: "semmi esetre sem", value: 0 },
     ],
     questions: [
       {
@@ -731,7 +731,7 @@ export const quizData: Quiz = [
         value: 168,
       },
       {
-        text: "...a nyelveken szólás magyarázatát adjam, ha Isten megadja a jelentést",
+        text: "...a nyelveken szólást megmagyarázzam, ha Isten megadja a jelentést",
         value: 169,
       },
       {
