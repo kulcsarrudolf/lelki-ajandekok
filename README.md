@@ -2,7 +2,7 @@
 
 ## How to test
 
-Go to [https://lelki-ajandekok.vercel.app/](https://lelki-ajandekok.vercel.app/)
+Go to [https://karizm.app](https://karizm.app) and test the app.
 
 ## How to run
 
