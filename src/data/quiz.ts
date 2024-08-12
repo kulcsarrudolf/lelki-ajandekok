@@ -1,6 +1,323 @@
 import { Quiz, QuizAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 
+export const quizDataReferral: Quiz = [
+  {
+    sectionName: "...-nél el tudom képzelni",
+    description:
+      "Ha még nincs tapasztalatod ezen a területen, jelöld meg az utolsó opciót.",
+    answers: [
+      { text: "nagyon jól", value: 5 },
+      { text: "jól", value: 4 },
+      { text: "adott esetben", value: 2 },
+      { text: "nem", value: 1 },
+      { text: "egyáltalán nem", value: 0 },
+    ],
+    questions: [
+      {
+        value: 181,
+        valueLetter: "a",
+        text: "...hogy sok örömet jelent neki, ha szervezési kérdésekkel foglalkozhat a gyülekezetben",
+      },
+      {
+        value: 182,
+        valueLetter: "b",
+        text: "...hogy nagyon örülne annak, ha élete nagy részét egy idegen kultúrában tölthetné",
+      },
+      {
+        value: 183,
+        valueLetter: "c",
+        text: "...hogy neki kevesebb problémát okozna az, ha nem házasodna meg, mint másoknak (ha házas, jelöld a jobb o.)",
+      },
+      {
+        value: 184,
+        valueLetter: "d",
+        text: "...hogy jobban felismeri bizonyos viselkedés mögött az igazi motivációt, mint mások",
+      },
+      {
+        value: 185,
+        valueLetter: "e",
+        text: "...hogy az ő hivatása abban van, hogy a még nemhívőkkel beszéljen a Jézus Krisztusba vetett hitről",
+      },
+      {
+        value: 186,
+        valueLetter: "f",
+        text: "...hogy tőle távol élő emberek is felkeresik, hogy lelkigondozói segítséget kapjanak",
+      },
+      {
+        value: 187,
+        valueLetter: "g",
+        text: "...hogy kész személyes nagy rizikót is vállalni célja elérése érdekében",
+      },
+      {
+        value: 188,
+        valueLetter: "h",
+        text: "...hogy neki fontosabb - összehasonlítva másokkal az -, hogy pénzt szánjon missziós célokra",
+      },
+      {
+        value: 189,
+        valueLetter: "i",
+        text: "...hogy jobban különbséget tud tenni mint mások aközött, hogy isteni, sátáni, vagy emberi dolog-e az amiről szó van",
+      },
+      {
+        value: 190,
+        valueLetter: "j",
+        text: "...hogy hozzá többször fordulnak azért, hogy imádkozzon gyógyulásukért",
+      },
+      {
+        value: 191,
+        valueLetter: "k",
+        text: "...hogy nagy örömét leli mások képzésében, továbbképzésében",
+      },
+      {
+        value: 192,
+        valueLetter: "l",
+        text: "...hogy a nyelvekenszólás ajándékával rendelkezik",
+      },
+      {
+        value: 193,
+        valueLetter: "m",
+        text: "...hogy ő könnyebben meg tudja oldani mások bonyolult problémáit",
+      },
+      {
+        value: 194,
+        valueLetter: "n",
+        text: "...hogy kevés anyagival boldogabb mint a sokkal",
+      },
+      {
+        value: 195,
+        valueLetter: "o",
+        text: "...jobb kézügyessége, művészi hajlama van, mint másoknak úgy általában",
+      },
+      {
+        value: 196,
+        valueLetter: "p",
+        text: "...időt igénylő munkákat vesz át másoktól",
+      },
+      {
+        value: 197,
+        valueLetter: "q",
+        text: "...vendégekkel boldogabb, mint nélkülük",
+      },
+      {
+        value: 198,
+        valueLetter: "r",
+        text: "...sok örömet jelent neki, ha sok időt tölthet el imádságban",
+      },
+      {
+        value: 199,
+        valueLetter: "s",
+        text: "...képes valakinek a nyelvekenszólását tolmácsolni",
+      },
+      {
+        value: 200,
+        valueLetter: "t",
+        text: "...nagyon örül annak, ha háttérbe szorulva, új missziós terveken dolgozhat",
+      },
+      {
+        value: 201,
+        valueLetter: "u",
+        text: "...az ő speciális feladata, hogy másoknak utat mutasson",
+      },
+      {
+        value: 202,
+        valueLetter: "v",
+        text: "...könnyebben viseli a szenvedést, mint mások",
+      },
+      {
+        value: 203,
+        valueLetter: "w",
+        text: "...speciális feladatának látja azt, hogy bajban levő emberekkel törődjön",
+      },
+      {
+        value: 204,
+        valueLetter: "x",
+        text: "...Isten használja, jelek és csodák megtételében",
+      },
+      {
+        value: 205,
+        valueLetter: "y",
+        text: "...kikérik a tanácsát, ha vezetőket választanak a gyülekezetben",
+      },
+      {
+        value: 206,
+        valueLetter: "z",
+        text: "...nagy öröme van abban, ha hosszú ideig vezetheti hívők egy csoportját személyesen",
+      },
+      {
+        value: 207,
+        valueLetter: "aa",
+        text: "...Isten több üzenetet közöl rajta keresztül a gyülekezetnek, mint mások által",
+      },
+      {
+        value: 208,
+        valueLetter: "bb",
+        text: "...könnyen végez bármely munkát a gyülekezetben",
+      },
+      {
+        value: 209,
+        valueLetter: "cc",
+        text: "...nagyon örül annak, ha Istent zenével, énekkel dicsőítheti",
+      },
+      {
+        value: 210,
+        valueLetter: "dd",
+        text: "...örömet szerez neki, ha művészetét beleviheti a szolgálatba (rajz, festés, játék, pantomin, bábozás, stb.)",
+      },
+      {
+        value: 211,
+        valueLetter: "A",
+        text: "...hogy sok örömet jelent neki, ha szervezési kérdésekkel foglalkozhat a gyülekezetben",
+      },
+      {
+        value: 212,
+        valueLetter: "B",
+        text: "...hogy nagyon örülne annak, ha élete nagy részét egy idegen kultúrában tölthetné",
+      },
+      {
+        value: 213,
+        valueLetter: "C",
+        text: "...hogy neki kevesebb problémát okozna az, ha nem házasodna meg, mint másoknak (ha házas, jelöld a jobb o.)",
+      },
+      {
+        value: 214,
+        valueLetter: "D",
+        text: "...hogy jobban felismeri bizonyos viselkedés mögött az igazi motivációt, mint mások",
+      },
+      {
+        value: 215,
+        valueLetter: "E",
+        text: "...hogy az ő hivatása abban van, hogy a még nemhívőkkel beszéljen a Jézus Krisztusba vetett hitről",
+      },
+      {
+        value: 216,
+        valueLetter: "F",
+        text: "...hogy tőle távol élő emberek is felkeresik, hogy lelkigondozói segítséget kapjanak",
+      },
+      {
+        value: 217,
+        valueLetter: "G",
+        text: "...hogy kész lenne személyes nagy is rizikót vállalni célja elérése érdekében",
+      },
+      {
+        value: 218,
+        valueLetter: "H",
+        text: "...hogy neki fontosabb összehasonlítva másokkal az, hogy pénzt szánjon missziós célokra",
+      },
+      {
+        value: 219,
+        valueLetter: "I",
+        text: "...hogy hozzá többször fordulnak azért, hogy imádkozzon gyógyulásukért",
+      },
+      {
+        value: 220,
+        valueLetter: "J",
+        text: "...hogy nagy örömét leli mások képzésében, továbbképzésében",
+      },
+      {
+        value: 221,
+        valueLetter: "K",
+        text: "...hogy jobban különbséget tud tenni mint mások aközött, hogy isteni, sátáni, vagy emberi dolog-e az amiről szó van",
+      },
+      {
+        value: 222,
+        valueLetter: "L",
+        text: "...hogy a nyelvekenszólás ajándékával rendelkezik",
+      },
+      {
+        value: 223,
+        valueLetter: "M",
+        text: "...hogy ő könnyebben meg tudja oldani mások bonyolult problémáit",
+      },
+      {
+        value: 224,
+        valueLetter: "N",
+        text: "...hogy kevés anyagival boldogabb mint a sokkal",
+      },
+      {
+        value: 225,
+        valueLetter: "O",
+        text: "...jobb kézügyessége, művészi hajlama van, mint másoknak úgy általában",
+      },
+      {
+        value: 226,
+        valueLetter: "P",
+        text: "...időt igénylő munkákat vesz át másoktól",
+      },
+      {
+        value: 227,
+        valueLetter: "Q",
+        text: "...vendégekkel boldogabb, mint nélkülük",
+      },
+      {
+        value: 228,
+        valueLetter: "R",
+        text: "...sok örömet jelent neki, ha sok időt tölthet el imádságban",
+      },
+      {
+        value: 229,
+        valueLetter: "S",
+        text: "...képes valakinek a nyelvekenszólását tolmácsolni",
+      },
+      {
+        value: 230,
+        valueLetter: "T",
+        text: "...nagyon örül annak, ha háttérbe szorulva, új missziós terveken dolgozhat",
+      },
+      {
+        value: 231,
+        valueLetter: "U",
+        text: "...az ő speciális feladata, hogy másoknak utat mutasson",
+      },
+      {
+        value: 232,
+        valueLetter: "V",
+        text: "...könnyebben viseli a szenvedést, mint mások",
+      },
+      {
+        value: 233,
+        valueLetter: "W",
+        text: "...speciális feladatának látja azt, hogy bajban levő emberekkel törődjön",
+      },
+      {
+        value: 234,
+        valueLetter: "X",
+        text: "...Isten használja, jelek és csodák megtételében",
+      },
+      {
+        value: 235,
+        valueLetter: "Y",
+        text: "...kikérik a tanácsát, ha vezetőket választanak a gyülekezetben",
+      },
+      {
+        value: 236,
+        valueLetter: "Z",
+        text: "...nagy öröme van abban, ha hosszú ideig vezetheti hívők egy csoportját személyesen",
+      },
+      {
+        value: 237,
+        valueLetter: "AA",
+        text: "...Isten több üzenetet közöl rajta keresztül a gyülekezetnek, mint mások által",
+      },
+      {
+        value: 238,
+        valueLetter: "BB",
+        text: "...könnyen végez bármely munkát a gyülekezetben",
+      },
+      {
+        value: 239,
+        valueLetter: "CC",
+        text: "...nagyon örül annak, ha Istent zenével, énekkel dicsőítheti",
+      },
+      {
+        value: 240,
+        valueLetter: "DD",
+        text: "...örömet szerez neki, ha művészetét beleviheti a szolgálatba (rajz, festés, játék, pantomin, bábozás, stb.)",
+      },
+    ],
+  },
+];
+
 export const quizData: Quiz = [
   {
     sectionName: "Örömöt okoz nekem....",

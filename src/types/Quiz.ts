@@ -8,6 +8,7 @@ export type QuizAnswer = {
 export interface IQuestion {
   id?: string;
   value: number;
+  valueLetter?: string;
   text: string;
 }
 
