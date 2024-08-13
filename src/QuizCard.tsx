@@ -4,19 +4,26 @@ import Button from "./components/Button";
 import AnswerOption from "./components/AnswerOption";
 import Question from "./components/Question";
 import { Description } from "./components/Typography";
-import { IQuestionDetails, getQuizData } from "./data/quiz";
+import { IQuestionDetails } from "./data/quiz";
 import {
   LocalStorageKeys,
   loadFromLocalStorage,
   saveToLocalStorage,
 } from "./utils.js/local-storage";
 
-const quizData: IQuestionDetails[] = getQuizData();
-
 interface QuizCardProps {
   handleNextStep: () => void;
+  quizData: IQuestionDetails[];
+  lastQuestionNumberKey: LocalStorageKeys;
+  answersKey: LocalStorageKeys;
+  isReferral?: boolean;
 }
-const QuizCard = ({ handleNextStep }: QuizCardProps) => {
+const QuizCard = ({
+  handleNextStep,
+  quizData,
+  lastQuestionNumberKey,
+  answersKey,
+}: QuizCardProps) => {
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(1);
   const [currentAnswer, setCurrentAnswer] = useState<QuizAnswer | null>(null);
   const [answers, setAnswers] = useState<
@@ -28,7 +35,7 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
   };
 
   const handlePreviousQuestion = () => {
-    saveToLocalStorage(LocalStorageKeys.LastQuestionNumber, {
+    saveToLocalStorage(lastQuestionNumberKey, {
       value: JSON.stringify(currentQuestionNumber - 1),
       timestamp: new Date(),
     });
@@ -52,12 +59,12 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
 
     setAnswers(answersCopy);
 
-    saveToLocalStorage(LocalStorageKeys.Answers, {
+    saveToLocalStorage(answersKey, {
       value: JSON.stringify(answersCopy),
       timestamp: new Date(),
     });
 
-    saveToLocalStorage(LocalStorageKeys.LastQuestionNumber, {
+    saveToLocalStorage(lastQuestionNumberKey, {
       value: JSON.stringify(currentQuestionNumber + 1),
       timestamp: new Date(),
     });
@@ -70,15 +77,13 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
   };
 
   useEffect(() => {
-    const lastQuestionNumber = loadFromLocalStorage(
-      LocalStorageKeys.LastQuestionNumber
-    );
+    const lastQuestionNumber = loadFromLocalStorage(lastQuestionNumberKey);
 
     if (lastQuestionNumber) {
       setCurrentQuestionNumber(Number(lastQuestionNumber.value));
     }
 
-    const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
+    const localStorageAnswers = loadFromLocalStorage(answersKey);
 
     if (localStorageAnswers) {
       const currentAnswers = JSON.parse(localStorageAnswers.value);
@@ -142,7 +147,7 @@ const QuizCard = ({ handleNextStep }: QuizCardProps) => {
 
                       setAnswers(answersCopy);
 
-                      saveToLocalStorage(LocalStorageKeys.Answers, {
+                      saveToLocalStorage(answersKey, {
                         value: JSON.stringify(answersCopy),
                         timestamp: new Date(),
                       });

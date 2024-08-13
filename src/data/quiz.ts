@@ -1132,3 +1132,28 @@ export const getQuizData = (): IQuestionDetails[] => {
 
   return result;
 };
+
+export const getQuizDataForReferral = (): IQuestionDetails[] => {
+  const result: IQuestionDetails[] = [];
+
+  quizDataReferral.forEach((section) => {
+    section.questions.forEach((question: { text: string; value: number }) => {
+      const currentQuestion = {
+        id: uuidv4(),
+        questionNumber: question.value - 180,
+        questionText: question.text,
+        sectionName: section.sectionName,
+        description: section.description,
+        answers: section.answers.map((answer) => ({
+          id: uuidv4(),
+          text: answer.text,
+          value: answer.value,
+        })),
+      };
+
+      result.push(currentQuestion);
+    });
+  });
+
+  return result;
+};

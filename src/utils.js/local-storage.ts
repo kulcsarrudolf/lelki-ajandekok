@@ -34,4 +34,6 @@ export const clearLocalStorage = () => {
 export enum LocalStorageKeys {
   Answers = "answers",
   LastQuestionNumber = "lastQuestionNumber",
+  AnswersLastReferal = "answersLastReferal",
+  LastQuestionNumberLastReferal = "lastQuestionNumberLastReferal",
 }
