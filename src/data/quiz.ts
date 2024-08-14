@@ -3,9 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const quizDataReferral: Quiz = [
   {
-    sectionName: "...-nél el tudom képzelni",
-    description:
-      "Ha még nincs tapasztalatod ezen a területen, jelöld meg az utolsó opciót.",
+    sectionName: "{{referralName}} el tudom képzelni...",
     answers: [
       { text: "nagyon jól", value: 5 },
       { text: "jól", value: 4 },

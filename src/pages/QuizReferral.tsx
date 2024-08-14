@@ -6,6 +6,37 @@ import { useState } from "react";
 
 const quizData: IQuestionDetails[] = getQuizDataForReferral();
 
+// function determineSuffix(name: string): string {
+//   const frontVowels = new Set(["e", "é", "i", "í", "ö", "ő", "ü", "ű"]);
+//   const backVowels = new Set(["a", "á", "o", "ó", "u", "ú"]);
+
+//   const lowerName = name.toLowerCase();
+
+//   for (let i = lowerName.length - 1; i >= 0; i--) {
+//     const char = lowerName[i];
+//     if (frontVowels.has(char)) {
+//       return `${name}nél`;
+//     }
+
+//     if (backVowels.has(char)) {
+//       return `${name}nál`;
+//     }
+//   }
+
+//   return `${name}nál`;
+// }
+
+function formatName(name: string): string {
+  name = name.trim();
+  name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+  // if (name.length > 4) {
+  //   return determineSuffix(name);
+  // }
+
+  return `${name}nál(nél)`;
+}
+
 const QuizReferral = () => {
   const navigate = useNavigate();
   const [referralName, setReferralName] = useState<string | null>(null);
@@ -44,7 +75,13 @@ const QuizReferral = () => {
       handleNextStep={() => {
         navigate("/results");
       }}
-      quizData={quizData}
+      quizData={quizData.map((question) => ({
+        ...question,
+        sectionName: question.sectionName.replace(
+          "{{referralName}}",
+          formatName(referralName)
+        ),
+      }))}
       lastQuestionNumberKey={LocalStorageKeys.LastQuestionNumberLastReferal}
       answersKey={LocalStorageKeys.AnswersLastReferal}
     />
