@@ -5,6 +5,7 @@ import {
   clearLocalStorage,
   loadFromLocalStorage,
 } from "../utils.js/local-storage";
+import { useNavigate } from "react-router-dom";
 
 interface IntroductionProps {
   goForward: () => void;
@@ -14,6 +15,8 @@ const Introduction = ({ goForward }: IntroductionProps) => {
   const [quizButtonText, setQuizButtonText] =
     useState<string>("Tovább a teszthez");
   const [showResetButton, setShowResetButton] = useState<boolean>(false);
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleDeleteLocalStorage = () => {
     clearLocalStorage();
@@ -22,7 +25,6 @@ const Introduction = ({ goForward }: IntroductionProps) => {
   };
 
   useEffect(() => {
-    console.log("Introduction rendered");
     const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
 
     if (localStorageAnswers) {
@@ -34,6 +36,8 @@ const Introduction = ({ goForward }: IntroductionProps) => {
         setQuizButtonText("A teszt folytatása");
         setShowResetButton(true);
       }
+
+      setIsCompleted(currentAnswers.length === 180);
     }
   }, []);
 
@@ -70,15 +74,29 @@ const Introduction = ({ goForward }: IntroductionProps) => {
           </a>
         </span>
       </p>
-      <div className="w-full mt-10 flex justify-center">
-        <Button disabled={false} text={quizButtonText} onClick={goForward} />
-      </div>
+      {!isCompleted && (
+        <div className="w-full mt-10 flex justify-center">
+          <Button disabled={false} text={quizButtonText} onClick={goForward} />
+        </div>
+      )}
+
+      {isCompleted && (
+        <div className="w-full mt-10 flex justify-center w-108">
+          <Button
+            disabled={false}
+            text="Ajándékaim megtekintése"
+            onClick={() => navigate("/results")}
+            fullWidth={true}
+          />
+        </div>
+      )}
       {showResetButton && (
-        <div className="w-full mt-2 flex justify-center">
+        <div className="w-full mt-2 flex justify-center w-108">
           <Button
             disabled={false}
             text="Teszt újrakezdése"
             onClick={handleDeleteLocalStorage}
+            fullWidth={true}
           />
         </div>
       )}

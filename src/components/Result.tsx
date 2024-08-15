@@ -7,6 +7,7 @@ import { QuizAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 import gifts from "../data/gifts";
 import Button from "./Button";
+import { Navigate } from "react-router-dom";
 
 type Gift = {
   name: string;
@@ -42,11 +43,6 @@ const getResults = (answers: any[]) => {
   let partAResult = calculateScoresForPart(gifts, answersCopy, "partA");
   let partBResult = calculateScoresForPart(gifts, answersCopy, "partB");
 
-  console.log("partAResult");
-  console.log(sortResultsDesc(partAResult));
-  console.log("partBResult");
-  console.log(sortResultsDesc(partBResult));
-
   partAResult = sortResultsDesc(partAResult).slice(0, 5);
   const partAGifts = partAResult.map((result: any) => result.gift);
 
@@ -61,6 +57,7 @@ interface ResultProps {
 }
 const Result = ({ goToHome }: ResultProps) => {
   const [result, setResult] = useState<any>(null);
+  const [isComplete, setIsComplete] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
     const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
@@ -70,6 +67,8 @@ const Result = ({ goToHome }: ResultProps) => {
         (result: QuizAnswer) => result
       );
 
+      setIsComplete(currentAnswers.length === 180);
+
       const result = getResults(currentAnswers);
 
       setResult(result);
@@ -78,6 +77,14 @@ const Result = ({ goToHome }: ResultProps) => {
 
   if (!result) {
     return <div>Loading...</div>;
+  }
+
+  if (isComplete === undefined) {
+    return <div>Loading...</div>;
+  }
+
+  if (isComplete === false) {
+    return <Navigate to="/" />;
   }
 
   return (
