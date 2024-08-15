@@ -76,7 +76,12 @@ const Introduction = ({ goForward }: IntroductionProps) => {
       </p>
       {!isCompleted && (
         <div className="w-full mt-10 flex justify-center">
-          <Button disabled={false} text={quizButtonText} onClick={goForward} />
+          <Button
+            disabled={false}
+            text={quizButtonText}
+            onClick={goForward}
+            fullWidth
+          />
         </div>
       )}
 
