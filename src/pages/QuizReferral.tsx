@@ -52,9 +52,18 @@ const QuizReferral = () => {
         <input
           type="text"
           placeholder="Barátod azonosítója"
-          onChange={(e) => setReferralCode(e.target.value)}
+          onChange={(e) => setReferralCode(e.target.value.trim().toUpperCase())}
+          onInput={(e) => {
+            const input = e.target as HTMLInputElement;
+            input.value = input.value
+              .toLocaleUpperCase()
+              .replace(/[^A-Z0-9]/g, "");
+          }}
           className="block w-full p-2 border border-gray-300 rounded"
         />
+        <p className="text-sm text-gray-500">
+          Írd be az azonosítót, amit a barátodtól kaptál.
+        </p>
         <button
           onClick={() => {
             setStartQuiz(true);

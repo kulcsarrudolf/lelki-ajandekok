@@ -105,6 +105,14 @@ const Introduction = ({ goForward }: IntroductionProps) => {
           />
         </div>
       )}
+      <div className="w-full mt-2 flex justify-center w-108">
+        <Button
+          disabled={false}
+          text="Teszt kitöltése egy barátom számára"
+          onClick={() => navigate("/quiz-referral")}
+          fullWidth={true}
+        />
+      </div>
       {showResetButton && (
         <div className="w-full mt-2 flex justify-center w-108">
           <Button
