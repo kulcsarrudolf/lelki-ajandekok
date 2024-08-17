@@ -36,4 +36,5 @@ export enum LocalStorageKeys {
   LastQuestionNumber = "lastQuestionNumber",
   AnswersLastReferal = "answersLastReferal",
   LastQuestionNumberLastReferal = "lastQuestionNumberLastReferal",
+  Referrals = "referrals",
 }

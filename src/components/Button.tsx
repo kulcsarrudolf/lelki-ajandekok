@@ -6,6 +6,7 @@ interface ButtonProps {
   order?: number;
   fullWidth?: boolean;
   colorClass?: string; // New prop to handle color classes
+  noMargin?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   order,
   fullWidth = false,
   colorClass,
+  noMargin,
 }) => {
   const width = fullWidth ? "w-full" : "min-w-[10rem]";
 
@@ -25,8 +27,9 @@ const Button: React.FC<ButtonProps> = ({
   const colorClasses = colorClass || "bg-blue-500 hover:bg-blue-600";
   const o = order ? `order-${order} xs:order-none` : "";
   const disabledClasses = `${color} cursor-not-allowed`;
+  const margin = noMargin ? "" : "mx-5";
 
-  const defaultClasses = `${width} h-12 px-5 text-white font-semibold rounded focus:outline-none focus:ring-2 focus:ring-blue-300 mx-5 ${o}`;
+  const defaultClasses = `${width} h-12 px-5 text-white font-semibold rounded focus:outline-none focus:ring-2 focus:ring-blue-300 ${margin} ${o}`;
 
   return (
     <button
