@@ -25,7 +25,7 @@ export const quizDataReferral: Quiz = [
       {
         value: 183,
         valueLetter: "c",
-        text: "...hogy neki kevesebb problémát okozna az, ha nem házasodna meg, mint másoknak (ha házas, jelöld a jobb o.)",
+        text: "...hogy neki kevesebb problémát okozna az, ha nem házasodna meg, mint másoknak (ha házas, jelöld az egyáltalán nem opciót)",
       },
       {
         value: 184,
