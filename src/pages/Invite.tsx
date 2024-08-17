@@ -87,9 +87,11 @@ const Invite = () => {
         />
       </div>
 
-      <p className="mt-4 font-bold text-center mb-6">
-        Akiket eddig meg hívtál:
-      </p>
+      {currentReferrals.length > 0 && (
+        <p className="mt-4 font-bold text-center mb-6">
+          Akiket már meg hívtál:
+        </p>
+      )}
 
       <ul className="grid grid-cols-3 gap-2">
         {currentReferrals.map((referral: any, index: number) => (
