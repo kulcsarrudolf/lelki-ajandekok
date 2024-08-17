@@ -155,7 +155,11 @@ const QuizCard = ({
                       handleNextStep();
                     }}
                     disabled={!currentAnswer}
-                    text="Tovább a végeredményhez"
+                    text={
+                      quizData.length > 60
+                        ? "Tovább a végeredményhez"
+                        : "Válaszok elküldése"
+                    }
                     fullWidth
                   />
                 </div>

@@ -33,7 +33,7 @@ const Invite = () => {
 
     const updatedReferrals = referrals.map((referral: any, index: number) => ({
       ...referral,
-      status: response[index].status,
+      completed: response[index].completed,
     }));
 
     setCurrentReferrals(updatedReferrals);

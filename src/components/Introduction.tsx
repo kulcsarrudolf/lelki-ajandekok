@@ -86,11 +86,21 @@ const Introduction = ({ goForward }: IntroductionProps) => {
       )}
 
       {isCompleted && (
-        <div className="w-full mt-10 flex justify-center w-108">
+        <div className="w-full mt-2 flex justify-center w-108">
           <Button
             disabled={false}
             text="Ajándékaim megtekintése"
             onClick={() => navigate("/results")}
+            fullWidth={true}
+          />
+        </div>
+      )}
+      {isCompleted && (
+        <div className="w-full mt-2 flex justify-center w-108">
+          <Button
+            disabled={false}
+            text="Barátaid meghívása"
+            onClick={() => navigate("/invite")}
             fullWidth={true}
           />
         </div>

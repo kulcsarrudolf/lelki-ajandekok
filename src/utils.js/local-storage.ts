@@ -23,6 +23,14 @@ export const loadFromLocalStorage = (key: string): IData | undefined => {
   }
 };
 
+export const removeFromLocalStorage = (key: string) => {
+  try {
+    window.localStorage.removeItem(key);
+  } catch (error) {
+    console.error("Error removing from local storage", error);
+  }
+};
+
 export const clearLocalStorage = () => {
   try {
     window.localStorage.clear();
