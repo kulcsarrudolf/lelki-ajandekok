@@ -558,7 +558,7 @@ export const quizData: Quiz = [
         text: "...rendelkezésre állni, ha a gyülekezetben valamilyen feladatot meg kell oldani",
         value: 58,
       },
-      { text: "...istent zenével szolgálni", value: 59 },
+      { text: "...Istent zenével szolgálni", value: 59 },
       {
         text: "...érzelmeimet kreatív módon kifejezni (jelenet, festészet, kerámia, stb)",
         value: 60,
