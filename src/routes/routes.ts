@@ -4,6 +4,7 @@ import Quiz from "../pages/Quiz";
 import QuizReferral from "../pages/QuizReferral";
 import Results from "../pages/Results";
 import Invite from "../pages/Invite";
+import Privacy from "../components/Privacy";
 
 interface RouteConfig {
   path: string;
@@ -16,5 +17,6 @@ export const routes: RouteConfig[] = [
   { path: "/quiz-referral", element: QuizReferral },
   { path: "/invite", element: Invite },
   { path: "/results", element: Results },
+  { path: "/privacy", element: Privacy },
   { path: "*", element: NotFound },
 ];

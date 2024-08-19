@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Button from "./Button";
+import Button, { TextButton } from "./Button";
 import {
   LocalStorageKeys,
   clearLocalStorage,
@@ -74,6 +74,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
           </a>
         </span>
       </p>
+
       {!isCompleted && (
         <div className="w-full mt-10 flex justify-center">
           <Button
@@ -123,6 +124,14 @@ const Introduction = ({ goForward }: IntroductionProps) => {
           />
         </div>
       )}
+
+      <div className="w-full mt-8 flex justify-center w-108 text-center">
+        <TextButton
+          text="Adatvédelmi és Biztonsági Tájékoztató"
+          fullWidth={true}
+          onClick={() => navigate("/privacy")}
+        />
+      </div>
     </>
   );
 };
