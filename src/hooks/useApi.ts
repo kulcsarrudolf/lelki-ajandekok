@@ -1,4 +1,9 @@
 import { useState } from "react";
+import {
+  ReferralCodeResponse,
+  ReferralStatusResponse,
+  SubmitAnswersResponse,
+} from "../types/api";
 
 // Helper function for fetch requests with proper error handling
 async function fetchJSON<T>(
@@ -22,37 +27,39 @@ async function fetchJSON<T>(
 
 const useApi = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<ReferralCodeResponse | ReferralStatusResponse | SubmitAnswersResponse | null>(null);
 
-  const generateReferralCode = async () => {
+  const generateReferralCode = async (): Promise<ReferralCodeResponse | undefined> => {
     setLoading(true);
     try {
-      const data = await fetchJSON(
+      const data = await fetchJSON<ReferralCodeResponse>(
         "https://koszikla-api.fly.dev/api/karizmapp/referral/generate-code",
         { method: 'POST' }
       );
 
       setData(data);
       return data;
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.log(errorMessage);
     } finally {
       setLoading(false);
     }
   };
 
-  const getReferralCodeStatus = async (code: string) => {
+  const getReferralCodeStatus = async (code: string): Promise<ReferralStatusResponse> => {
     setLoading(true);
     try {
-      const data = await fetchJSON(
+      const data = await fetchJSON<ReferralStatusResponse>(
         `https://koszikla-api.fly.dev/api/karizmapp/submition/${code}`,
         { method: 'GET' }
       );
 
       setData(data);
       return data;
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.log(errorMessage);
       return {
         completed: false,
         answers: [],
@@ -62,10 +69,10 @@ const useApi = () => {
     }
   };
 
-  const submitAnswers = async (code: string, answers: any) => {
+  const submitAnswers = async (code: string, answers: unknown): Promise<SubmitAnswersResponse | undefined> => {
     setLoading(true);
     try {
-      const data = await fetchJSON(
+      const data = await fetchJSON<SubmitAnswersResponse>(
         "https://koszikla-api.fly.dev/api/karizmapp/submition",
         {
           method: 'POST',
@@ -78,8 +85,9 @@ const useApi = () => {
 
       setData(data);
       return data;
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.log(errorMessage);
     } finally {
       setLoading(false);
     }
