@@ -63,14 +63,18 @@ export const useQuizState = ({
         timestamp: new Date(),
       });
 
+      // Move to next question
+      const nextQuestionNumber = questionNumber + 1;
+      setCurrentQuestionNumber(nextQuestionNumber);
+
       saveToLocalStorage(lastQuestionNumberKey, {
-        value: JSON.stringify(questionNumber + 1),
+        value: JSON.stringify(nextQuestionNumber),
         timestamp: new Date(),
       });
 
       // Set next answer if it exists
-      if (answersCopy[questionNumber + 1]?.answer) {
-        setCurrentAnswer(answersCopy[questionNumber + 1].answer);
+      if (answersCopy[nextQuestionNumber]?.answer) {
+        setCurrentAnswer(answersCopy[nextQuestionNumber].answer);
       } else {
         setCurrentAnswer(null);
       }
