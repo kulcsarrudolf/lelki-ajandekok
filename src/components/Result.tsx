@@ -152,12 +152,12 @@ const Result = ({ goToHome }: ResultProps) => {
         </p>
       </div>
 
-      <div className="flex flex-col space-y-3 my-4">
+      <div className="flex flex-col items-center space-y-3 my-4">
         <Button
           onClick={() => setShowAnswerReview(true)}
           disabled={false}
           text="Válaszaim megtekintése"
-          fullWidth
+          fullWidth={false}
           colorClass="bg-green-500 hover:bg-green-600"
         />
 
@@ -165,7 +165,7 @@ const Result = ({ goToHome }: ResultProps) => {
           onClick={goToHome}
           disabled={false}
           text="Vissza a kezdőlapra"
-          fullWidth
+          fullWidth={false}
           noMargin
         />
       </div>

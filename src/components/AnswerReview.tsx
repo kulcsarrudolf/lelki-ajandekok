@@ -106,18 +106,18 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
           })}
       </div>
 
-      <div className="flex flex-col space-y-3 mt-6">
+      <div className="flex flex-col items-center space-y-3 mt-6">
         <Button
           onClick={onRecalculate}
           text="Eredmény újraszámítása"
-          fullWidth
+          fullWidth={false}
           disabled={totalAnswered < expectedTotal}
         />
 
         <Button
           onClick={onBack}
           text="Vissza"
-          fullWidth
+          fullWidth={false}
           colorClass="bg-gray-500 hover:bg-gray-600"
           noMargin
         />
