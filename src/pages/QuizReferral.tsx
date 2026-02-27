@@ -8,6 +8,7 @@ import {
 } from "../utils/local-storage";
 import { useState } from "react";
 import useApi from "../hooks/useApi";
+import { StoredAnswer } from "../types/Quiz";
 
 const quizData: IQuestionDetails[] = getQuizDataForReferral();
 
@@ -28,8 +29,8 @@ const QuizReferral = () => {
   const handleAnswersSubmit = async () => {
     const answers = loadFromLocalStorage(LocalStorageKeys.AnswersLastReferal);
 
-    const answerObject = JSON.parse(answers?.value ?? "[]").filter(
-      (answer: any) => answer !== null
+    const answerObject: StoredAnswer[] = JSON.parse(answers?.value ?? "[]").filter(
+      (answer: StoredAnswer | null) => answer !== null
     );
 
     await submitAnswers(referralCode!, answerObject);
