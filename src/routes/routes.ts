@@ -4,7 +4,7 @@ import Quiz from "../pages/Quiz";
 import QuizReferral from "../pages/QuizReferral";
 import Results from "../pages/Results";
 import Invite from "../pages/Invite";
-import Privacy from "../components/Privacy";
+import Privacy from "../pages/Privacy";
 
 interface RouteConfig {
   path: string;
