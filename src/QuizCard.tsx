@@ -71,7 +71,15 @@ const QuizCard = ({
   // Handle Enter key press to navigate
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
+      // Don't trigger if user is typing in an input/textarea
+      const target = event.target as HTMLElement;
+      if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") {
+        return;
+      }
+
+      // Only trigger if an answer is selected and Enter key is pressed
       if (event.key === "Enter" && currentAnswer) {
+        event.preventDefault(); // Prevent any default behavior
         if (isLastQuestion) {
           handleSubmit();
         } else {
