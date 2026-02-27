@@ -4,10 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "scripts": {
     "preinstall": "npx only-allow yarn",
     "dev": "vite",
+    "dev:docker": "docker-compose up",
     "build": "tsc && vite build",
+    "build:docker": "docker build -f Dockerfile -t lelki-ajandekok:latest .",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
