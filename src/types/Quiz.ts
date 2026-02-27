@@ -5,6 +5,12 @@ export type QuizAnswer = {
   text: string;
 };
 
+// Type for stored quiz answers in localStorage
+export interface StoredAnswer {
+  questionNumber: number;
+  answer: QuizAnswer;
+}
+
 export interface IQuestion {
   id?: string;
   value: number;

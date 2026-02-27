@@ -3,24 +3,34 @@ import {
   LocalStorageKeys,
   loadFromLocalStorage,
 } from "../utils/local-storage";
-import { QuizAnswer } from "../types/Quiz";
+import { StoredAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 import gifts from "../data/gifts";
 import Button from "./Button";
 import { Navigate } from "react-router-dom";
 import { QUIZ_CONSTANTS } from "../constants/quiz";
 
-type Gift = {
+interface Gift {
   name: string;
   partA: number[];
   partB: number[];
-};
+}
+
+interface GiftScore {
+  gift: string;
+  score: number;
+}
+
+interface QuizResults {
+  partAResult: GiftScore[];
+  partBResult: GiftScore[];
+}
 
 const calculateScoresForPart = (
   gifts: Gift[],
-  answers: any[],
+  answers: StoredAnswer[],
   part: "partA" | "partB"
-) =>
+): GiftScore[] =>
   gifts.map((gift) => {
     const score = gift[part].reduce((total, questionNumber) => {
       const answer = answers.find(
@@ -36,16 +46,16 @@ const calculateScoresForPart = (
     };
   });
 
-const sortResultsDesc = (results: { gift: string; score: number }[]) =>
+const sortResultsDesc = (results: GiftScore[]): GiftScore[] =>
   results.sort((a, b) => b.score - a.score);
 
-const getResults = (answers: any[]) => {
-  const answersCopy = JSON.parse(JSON.stringify(answers));
+const getResults = (answers: StoredAnswer[]): QuizResults => {
+  const answersCopy: StoredAnswer[] = JSON.parse(JSON.stringify(answers));
   let partAResult = calculateScoresForPart(gifts, answersCopy, "partA");
   let partBResult = calculateScoresForPart(gifts, answersCopy, "partB");
 
   partAResult = sortResultsDesc(partAResult).slice(0, QUIZ_CONSTANTS.TOP_GIFTS_COUNT);
-  const partAGifts = partAResult.map((result: any) => result.gift);
+  const partAGifts = partAResult.map((result) => result.gift);
 
   partBResult = sortResultsDesc(partBResult)
     .filter((item) => !partAGifts.includes(item.gift))
@@ -56,16 +66,17 @@ const getResults = (answers: any[]) => {
 interface ResultProps {
   goToHome: () => void;
 }
+
 const Result = ({ goToHome }: ResultProps) => {
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<QuizResults | null>(null);
   const [isComplete, setIsComplete] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
     const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
 
     if (localStorageAnswers) {
-      const currentAnswers = JSON.parse(localStorageAnswers.value).filter(
-        (result: QuizAnswer) => result
+      const currentAnswers: StoredAnswer[] = JSON.parse(localStorageAnswers.value).filter(
+        (result: StoredAnswer | null) => result !== null
       );
 
       setIsComplete(currentAnswers.length === 180);
@@ -93,7 +104,7 @@ const Result = ({ goToHome }: ResultProps) => {
       <div>
         <h3 className="text-xl font-semibold mb-2">AJÁNDÉKAIM</h3>
         <ul className="list-disc space-y-2 pl-5">
-          {result.partAResult.map((result: any) => (
+          {result.partAResult.map((result) => (
             <li key={uuidv4()}>{result.gift}</li>
           ))}
         </ul>
@@ -104,7 +115,7 @@ const Result = ({ goToHome }: ResultProps) => {
       <div>
         <h3 className="text-xl font-semibold mb-2">REJTETT AJÁNDÉKAIM</h3>
         <ul className="list-disc space-y-2 pl-5">
-          {result.partBResult.map((result: any) => (
+          {result.partBResult.map((result) => (
             <li key={uuidv4()}>{result.gift}</li>
           ))}
         </ul>
