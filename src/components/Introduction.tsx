@@ -6,6 +6,7 @@ import {
   loadFromLocalStorage,
 } from "../utils/local-storage";
 import { useNavigate } from "react-router-dom";
+import { StoredAnswer } from "../types/Quiz";
 
 interface IntroductionProps {
   goForward: () => void;
@@ -28,8 +29,8 @@ const Introduction = ({ goForward }: IntroductionProps) => {
     const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
 
     if (localStorageAnswers) {
-      const currentAnswers = JSON.parse(localStorageAnswers.value).filter(
-        (result: any) => result
+      const currentAnswers: StoredAnswer[] = JSON.parse(localStorageAnswers.value).filter(
+        (result: StoredAnswer | null) => result !== null
       );
 
       if (currentAnswers.length > 0) {

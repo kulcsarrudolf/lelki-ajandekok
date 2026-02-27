@@ -26,9 +26,11 @@ export const useQuizState = ({
   // Load saved state from localStorage on mount
   useEffect(() => {
     const lastQuestionNumber = loadFromLocalStorage(lastQuestionNumberKey);
+    let questionNumber = 1;
 
     if (lastQuestionNumber) {
-      setCurrentQuestionNumber(Number(lastQuestionNumber.value));
+      questionNumber = Number(lastQuestionNumber.value);
+      setCurrentQuestionNumber(questionNumber);
     }
 
     const savedAnswers = loadFromLocalStorage(answersKey);
@@ -38,8 +40,8 @@ export const useQuizState = ({
       setAnswers(parsedAnswers);
 
       // Set current answer if it exists
-      if (parsedAnswers[currentQuestionNumber]?.answer) {
-        setCurrentAnswer(parsedAnswers[currentQuestionNumber].answer);
+      if (parsedAnswers[questionNumber]?.answer) {
+        setCurrentAnswer(parsedAnswers[questionNumber].answer);
       }
     }
   }, [answersKey, lastQuestionNumberKey]);
