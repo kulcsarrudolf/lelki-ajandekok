@@ -5,7 +5,7 @@ import {
   loadFromLocalStorage,
   LocalStorageKeys,
   saveToLocalStorage,
-} from "../utils.js/local-storage";
+} from "../utils/local-storage";
 
 const getCurrentReferrals = () => {
   const currentReferrals = loadFromLocalStorage(LocalStorageKeys.Referrals);

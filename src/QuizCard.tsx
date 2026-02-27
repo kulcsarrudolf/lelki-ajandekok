@@ -9,7 +9,7 @@ import {
   LocalStorageKeys,
   loadFromLocalStorage,
   saveToLocalStorage,
-} from "./utils.js/local-storage";
+} from "./utils/local-storage";
 import { QUIZ_CONSTANTS, QUIZ_MESSAGES } from "./constants/quiz";
 
 interface QuizCardProps {

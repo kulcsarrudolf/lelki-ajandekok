@@ -4,7 +4,7 @@ import {
   LocalStorageKeys,
   clearLocalStorage,
   loadFromLocalStorage,
-} from "../utils.js/local-storage";
+} from "../utils/local-storage";
 import { useNavigate } from "react-router-dom";
 
 interface IntroductionProps {

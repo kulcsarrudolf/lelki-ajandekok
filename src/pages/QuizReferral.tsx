@@ -5,7 +5,7 @@ import {
   loadFromLocalStorage,
   LocalStorageKeys,
   removeFromLocalStorage,
-} from "../utils.js/local-storage";
+} from "../utils/local-storage";
 import { useState } from "react";
 import useApi from "../hooks/useApi";
 

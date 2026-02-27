@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import QuizCard from "../QuizCard";
 import { getQuizData, IQuestionDetails } from "../data/quiz";
-import { LocalStorageKeys } from "../utils.js/local-storage";
+import { LocalStorageKeys } from "../utils/local-storage";
 
 const quizData: IQuestionDetails[] = getQuizData();
 
