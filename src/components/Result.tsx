@@ -7,8 +7,9 @@ import { StoredAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 import gifts from "../data/gifts";
 import Button from "./Button";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { QUIZ_CONSTANTS } from "../constants/quiz";
+import AnswerReview from "./AnswerReview";
 
 interface Gift {
   name: string;
@@ -68,10 +69,13 @@ interface ResultProps {
 }
 
 const Result = ({ goToHome }: ResultProps) => {
+  const navigate = useNavigate();
   const [result, setResult] = useState<QuizResults | null>(null);
   const [isComplete, setIsComplete] = useState<boolean | undefined>(undefined);
+  const [showAnswerReview, setShowAnswerReview] = useState(false);
+  const [answers, setAnswers] = useState<StoredAnswer[]>([]);
 
-  useEffect(() => {
+  const loadAndCalculateResults = () => {
     const localStorageAnswers = loadFromLocalStorage(LocalStorageKeys.Answers);
 
     if (localStorageAnswers) {
@@ -79,12 +83,17 @@ const Result = ({ goToHome }: ResultProps) => {
         (result: StoredAnswer | null) => result !== null
       );
 
+      setAnswers(currentAnswers);
       setIsComplete(currentAnswers.length === 180);
 
       const result = getResults(currentAnswers);
 
       setResult(result);
     }
+  };
+
+  useEffect(() => {
+    loadAndCalculateResults();
   }, []);
 
   if (!result) {
@@ -97,6 +106,23 @@ const Result = ({ goToHome }: ResultProps) => {
 
   if (isComplete === false) {
     return <Navigate to="/" />;
+  }
+
+  if (showAnswerReview) {
+    return (
+      <AnswerReview
+        answers={answers}
+        onEditAnswer={() => {
+          // Navigate back to quiz to edit answers
+          navigate("/quiz");
+        }}
+        onRecalculate={() => {
+          loadAndCalculateResults();
+          setShowAnswerReview(false);
+        }}
+        onBack={() => setShowAnswerReview(false)}
+      />
+    );
   }
 
   return (
@@ -126,12 +152,21 @@ const Result = ({ goToHome }: ResultProps) => {
         </p>
       </div>
 
-      <div className="flex justify-center my-2">
+      <div className="flex flex-col space-y-3 my-4">
+        <Button
+          onClick={() => setShowAnswerReview(true)}
+          disabled={false}
+          text="Válaszaim megtekintése"
+          fullWidth
+          colorClass="bg-green-500 hover:bg-green-600"
+        />
+
         <Button
           onClick={goToHome}
           disabled={false}
           text="Vissza a kezdőlapra"
           fullWidth
+          noMargin
         />
       </div>
     </div>
