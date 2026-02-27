@@ -159,6 +159,7 @@ const Result = ({ goToHome }: ResultProps) => {
           text="Válaszaim megtekintése"
           fullWidth
           colorClass="bg-green-500 hover:bg-green-600"
+          noMargin
         />
 
         <Button

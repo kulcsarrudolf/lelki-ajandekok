@@ -112,6 +112,7 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
           text="Eredmény újraszámítása"
           fullWidth
           disabled={totalAnswered < expectedTotal}
+          noMargin
         />
 
         <Button
