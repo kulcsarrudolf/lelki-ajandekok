@@ -5,6 +5,7 @@ import { QUIZ_CONSTANTS, QUIZ_MESSAGES } from "./constants/quiz";
 import { useQuizState } from "./hooks/useQuizState";
 import QuestionDisplay from "./components/Quiz/QuestionDisplay";
 import QuizNavigation from "./components/Quiz/QuizNavigation";
+import ProgressBar from "./components/Quiz/ProgressBar";
 
 interface QuizCardProps {
   handleNextStep: () => void;
@@ -81,6 +82,12 @@ const QuizCard = ({
 
         return (
           <Fragment key={id}>
+            <ProgressBar
+              current={currentQuestionNumber}
+              total={quizData.length}
+              className="mb-6"
+            />
+
             <QuestionDisplay
               sectionName={sectionName}
               description={description}
