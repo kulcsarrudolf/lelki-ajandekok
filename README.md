@@ -18,6 +18,17 @@ npm install -g yarn
 
 > **Note:** This project is configured to only allow Yarn as the package manager. Attempting to use npm or pnpm will result in an error.
 
+### Environment Configuration
+
+Create a `.env` file in the root directory (optional):
+
+```bash
+cp .env.example .env
+```
+
+Available environment variables:
+- `VITE_API_BASE_URL` - API base URL (default: https://koszikla-api.fly.dev/api/karizmapp)
+
 ### Install dependencies
 
 ```bash

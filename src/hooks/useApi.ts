@@ -4,44 +4,34 @@ import {
   ReferralStatusResponse,
   SubmitAnswersResponse,
 } from "../types/api";
-
-// Helper function for fetch requests with proper error handling
-async function fetchJSON<T>(
-  url: string,
-  options?: RequestInit
-): Promise<T> {
-  const response = await fetch(url, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers,
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  return response.json();
-}
+import { apiClient, ApiError } from "../api/client";
+import { API_CONFIG } from "../config/api";
 
 const useApi = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<ReferralCodeResponse | ReferralStatusResponse | SubmitAnswersResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const generateReferralCode = async (): Promise<ReferralCodeResponse | undefined> => {
     setLoading(true);
+    setError(null);
+
     try {
-      const data = await fetchJSON<ReferralCodeResponse>(
-        "https://koszikla-api.fly.dev/api/karizmapp/referral/generate-code",
-        { method: 'POST' }
+      const response = await apiClient.post<ReferralCodeResponse>(
+        API_CONFIG.ENDPOINTS.REFERRAL.GENERATE
       );
 
-      setData(data);
-      return data;
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      console.log(errorMessage);
+      setData(response);
+      return response;
+    } catch (err) {
+      const errorMessage = err instanceof ApiError
+        ? err.message
+        : err instanceof Error
+        ? err.message
+        : 'Unknown error';
+
+      setError(errorMessage);
+      console.error('Generate referral code error:', errorMessage);
     } finally {
       setLoading(false);
     }
@@ -49,17 +39,26 @@ const useApi = () => {
 
   const getReferralCodeStatus = async (code: string): Promise<ReferralStatusResponse> => {
     setLoading(true);
+    setError(null);
+
     try {
-      const data = await fetchJSON<ReferralStatusResponse>(
-        `https://koszikla-api.fly.dev/api/karizmapp/submition/${code}`,
-        { method: 'GET' }
+      const response = await apiClient.get<ReferralStatusResponse>(
+        API_CONFIG.ENDPOINTS.REFERRAL.STATUS(code)
       );
 
-      setData(data);
-      return data;
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      console.log(errorMessage);
+      setData(response);
+      return response;
+    } catch (err) {
+      const errorMessage = err instanceof ApiError
+        ? err.message
+        : err instanceof Error
+        ? err.message
+        : 'Unknown error';
+
+      setError(errorMessage);
+      console.error('Get referral status error:', errorMessage);
+
+      // Return default fallback
       return {
         completed: false,
         answers: [],
@@ -71,23 +70,28 @@ const useApi = () => {
 
   const submitAnswers = async (code: string, answers: unknown): Promise<SubmitAnswersResponse | undefined> => {
     setLoading(true);
+    setError(null);
+
     try {
-      const data = await fetchJSON<SubmitAnswersResponse>(
-        "https://koszikla-api.fly.dev/api/karizmapp/submition",
+      const response = await apiClient.post<SubmitAnswersResponse>(
+        API_CONFIG.ENDPOINTS.REFERRAL.SUBMIT,
         {
-          method: 'POST',
-          body: JSON.stringify({
-            code: code,
-            answers: answers,
-          }),
+          code,
+          answers,
         }
       );
 
-      setData(data);
-      return data;
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      console.log(errorMessage);
+      setData(response);
+      return response;
+    } catch (err) {
+      const errorMessage = err instanceof ApiError
+        ? err.message
+        : err instanceof Error
+        ? err.message
+        : 'Unknown error';
+
+      setError(errorMessage);
+      console.error('Submit answers error:', errorMessage);
     } finally {
       setLoading(false);
     }
@@ -96,6 +100,7 @@ const useApi = () => {
   return {
     loading,
     data,
+    error,
     generateReferralCode,
     getReferralCodeStatus,
     submitAnswers,
