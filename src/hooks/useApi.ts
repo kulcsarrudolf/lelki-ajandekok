@@ -41,7 +41,7 @@ const useApi = () => {
     }
   };
 
-  const getRefferalCodeStatus = async (code: string) => {
+  const getReferralCodeStatus = async (code: string) => {
     setLoading(true);
     try {
       const data = await fetchJSON(
@@ -89,7 +89,7 @@ const useApi = () => {
     loading,
     data,
     generateReferralCode,
-    getRefferalCodeStatus,
+    getReferralCodeStatus,
     submitAnswers,
   };
 };

@@ -16,7 +16,7 @@ const getCurrentReferrals = () => {
 };
 
 const Invite = () => {
-  const { generateReferralCode, getRefferalCodeStatus } = useApi();
+  const { generateReferralCode, getReferralCodeStatus } = useApi();
   const [referralName, setReferralName] = useState<string>("");
   const [currentReferrals, setCurrentReferrals] = useState<Array<any>>(
     getCurrentReferrals()
@@ -28,7 +28,7 @@ const Invite = () => {
     const referralCodes = referrals.map((referral: any) => referral.code);
 
     const response = await Promise.all(
-      referralCodes.map((code: string) => getRefferalCodeStatus(code))
+      referralCodes.map((code: string) => getReferralCodeStatus(code))
     );
 
     const updatedReferrals = referrals.map((referral: any, index: number) => ({
