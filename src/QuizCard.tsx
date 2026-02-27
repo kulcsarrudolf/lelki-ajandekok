@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useCallback } from "react";
 import { IQuestionDetails } from "./data/quiz";
 import { LocalStorageKeys, saveToLocalStorage } from "./utils/local-storage";
 import { QUIZ_CONSTANTS, QUIZ_MESSAGES } from "./constants/quiz";
@@ -33,17 +33,17 @@ const QuizCard = ({
     lastQuestionNumberKey,
   });
 
-  const handlePreviousQuestion = () => {
+  const handlePreviousQuestion = useCallback(() => {
     goToQuestion(currentQuestionNumber - 1);
-  };
+  }, [goToQuestion, currentQuestionNumber]);
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = useCallback(() => {
     if (currentAnswer) {
       saveAnswer(currentQuestionNumber, currentAnswer);
     }
-  };
+  }, [currentAnswer, saveAnswer, currentQuestionNumber]);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     if (currentAnswer) {
       const answersCopy = [...answers];
 
@@ -59,12 +59,33 @@ const QuizCard = ({
 
       handleNextStep();
     }
-  };
+  }, [currentAnswer, answers, currentQuestionNumber, answersKey, handleNextStep]);
 
   const submitButtonText =
     quizData.length > QUIZ_CONSTANTS.REFERRAL_QUIZ_LENGTH
       ? QUIZ_MESSAGES.SUBMIT_LONG
       : QUIZ_MESSAGES.SUBMIT_SHORT;
+
+  const isLastQuestion = currentQuestionNumber === quizData.length;
+
+  // Handle Enter key press to navigate
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Enter" && currentAnswer) {
+        if (isLastQuestion) {
+          handleSubmit();
+        } else {
+          handleNextQuestion();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [currentAnswer, isLastQuestion, handleNextQuestion, handleSubmit]);
 
   return (
     <>
