@@ -8,9 +8,45 @@ Go to [https://karizm.app](https://karizm.app) and test the app.
 
 ## Development
 
-### Prerequisites
+### Option 1: Docker (Recommended)
 
-This project uses **Yarn** as the package manager. Please ensure you have Yarn installed:
+The easiest way to get started! No need to install Node.js locally - Docker handles everything.
+
+**Prerequisites:**
+- [Docker](https://www.docker.com/get-started) installed on your machine
+- [Docker Compose](https://docs.docker.com/compose/install/) (usually comes with Docker Desktop)
+
+**Start development server with hot reload:**
+
+```bash
+docker-compose up
+```
+
+The app will be available at `http://localhost:5173` with hot reload enabled. Any changes you make to the code will automatically refresh in the browser!
+
+**Stop the development server:**
+
+```bash
+docker-compose down
+```
+
+**Rebuild after dependency changes:**
+
+```bash
+docker-compose up --build
+```
+
+> **Note:** The Docker setup uses **Node 24** and enforces this version for all developers, ensuring consistency across the team.
+
+### Option 2: Local Development
+
+If you prefer to run the app locally without Docker:
+
+**Prerequisites:**
+- **Node.js 24** (recommended) or 18+
+- **Yarn** package manager
+
+Install Yarn:
 
 ```bash
 npm install -g yarn

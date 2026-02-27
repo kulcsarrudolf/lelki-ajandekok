@@ -1,0 +1,24 @@
+# Development Dockerfile with Node 24 and hot reload support
+FROM node:24-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies first (for better caching)
+# Copy package files
+COPY package.json yarn.lock .yarnrc.yml ./
+
+# Install Yarn 1.x globally (matching packageManager in package.json)
+RUN corepack enable && corepack prepare yarn@1.22.22 --activate
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Copy the rest of the application
+COPY . .
+
+# Expose Vite dev server port
+EXPOSE 5173
+
+# Start development server with host flag to enable hot reload in Docker
+CMD ["yarn", "dev", "--host", "0.0.0.0"]
