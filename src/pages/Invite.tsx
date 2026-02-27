@@ -6,11 +6,12 @@ import {
   LocalStorageKeys,
   saveToLocalStorage,
 } from "../utils/local-storage";
+import { Referral } from "../types/api";
 
-const getCurrentReferrals = () => {
+const getCurrentReferrals = (): Referral[] => {
   const currentReferrals = loadFromLocalStorage(LocalStorageKeys.Referrals);
 
-  const referrals = JSON.parse(currentReferrals?.value ?? "[]") || ([] as any);
+  const referrals: Referral[] = JSON.parse(currentReferrals?.value ?? "[]") || [];
 
   return referrals;
 };
@@ -18,20 +19,20 @@ const getCurrentReferrals = () => {
 const Invite = () => {
   const { generateReferralCode, getReferralCodeStatus } = useApi();
   const [referralName, setReferralName] = useState<string>("");
-  const [currentReferrals, setCurrentReferrals] = useState<Array<any>>(
+  const [currentReferrals, setCurrentReferrals] = useState<Referral[]>(
     getCurrentReferrals()
   );
 
   const getCurrentReferralsWithStatus = async () => {
     const referrals = getCurrentReferrals();
 
-    const referralCodes = referrals.map((referral: any) => referral.code);
+    const referralCodes = referrals.map((referral) => referral.code);
 
     const response = await Promise.all(
       referralCodes.map((code: string) => getReferralCodeStatus(code))
     );
 
-    const updatedReferrals = referrals.map((referral: any, index: number) => ({
+    const updatedReferrals: Referral[] = referrals.map((referral, index) => ({
       ...referral,
       completed: response[index].completed,
     }));
@@ -64,11 +65,16 @@ const Invite = () => {
           onClick={async () => {
             const response = await generateReferralCode();
 
+            if (!response?.code) {
+              console.error("Failed to generate referral code");
+              return;
+            }
+
             const referrals = getCurrentReferrals();
 
             referrals.push({
               name: referralName,
-              code: (response as any)?.code,
+              code: response.code,
             });
 
             saveToLocalStorage(LocalStorageKeys.Referrals, {
@@ -94,7 +100,7 @@ const Invite = () => {
       )}
 
       <ul className="grid grid-cols-3 gap-2">
-        {currentReferrals.map((referral: any, index: number) => (
+        {currentReferrals.map((referral, index) => (
           <>
             <li key={`${index}-name`} className="text-center">
               {referral.name}
