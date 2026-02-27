@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import gifts from "../data/gifts";
 import Button from "./Button";
 import { Navigate } from "react-router-dom";
+import { QUIZ_CONSTANTS } from "../constants/quiz";
 
 type Gift = {
   name: string;
@@ -43,12 +44,12 @@ const getResults = (answers: any[]) => {
   let partAResult = calculateScoresForPart(gifts, answersCopy, "partA");
   let partBResult = calculateScoresForPart(gifts, answersCopy, "partB");
 
-  partAResult = sortResultsDesc(partAResult).slice(0, 5);
+  partAResult = sortResultsDesc(partAResult).slice(0, QUIZ_CONSTANTS.TOP_GIFTS_COUNT);
   const partAGifts = partAResult.map((result: any) => result.gift);
 
   partBResult = sortResultsDesc(partBResult)
     .filter((item) => !partAGifts.includes(item.gift))
-    .slice(0, 5);
+    .slice(0, QUIZ_CONSTANTS.TOP_GIFTS_COUNT);
   return { partAResult, partBResult };
 };
 

@@ -10,6 +10,7 @@ import {
   loadFromLocalStorage,
   saveToLocalStorage,
 } from "./utils.js/local-storage";
+import { QUIZ_CONSTANTS, QUIZ_MESSAGES } from "./constants/quiz";
 
 interface QuizCardProps {
   handleNextStep: () => void;
@@ -156,9 +157,9 @@ const QuizCard = ({
                     }}
                     disabled={!currentAnswer}
                     text={
-                      quizData.length > 60
-                        ? "Tovább a végeredményhez"
-                        : "Válaszok elküldése"
+                      quizData.length > QUIZ_CONSTANTS.REFERRAL_QUIZ_LENGTH
+                        ? QUIZ_MESSAGES.SUBMIT_LONG
+                        : QUIZ_MESSAGES.SUBMIT_SHORT
                     }
                     fullWidth
                   />

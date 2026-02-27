@@ -1,5 +1,6 @@
 import { Quiz, QuizAnswer } from "../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
+import { QUIZ_CONSTANTS } from "../constants/quiz";
 
 export const quizDataReferral: Quiz = [
   {
@@ -1138,7 +1139,7 @@ export const getQuizDataForReferral = (): IQuestionDetails[] => {
     section.questions.forEach((question: { text: string; value: number }) => {
       const currentQuestion = {
         id: uuidv4(),
-        questionNumber: question.value - 180,
+        questionNumber: question.value - QUIZ_CONSTANTS.REFERRAL_QUESTION_OFFSET,
         questionText: question.text,
         sectionName: section.sectionName,
         description: section.description,
