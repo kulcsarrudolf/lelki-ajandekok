@@ -1,5 +1,2 @@
 dist
 node_modules
-*.config.js
-*.config.ts
-!.eslintrc.cjs
