@@ -159,7 +159,7 @@ const gifts = [
     name: "prófétálás",
     partA: [27, 87, 147],
     partB: [57, 117, 177],
-    pareC: ["AA", "aa"],
+    partC: ["AA", "aa"],
   },
   {
     name: "szolgálás",
