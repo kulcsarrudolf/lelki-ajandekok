@@ -1,5 +1,24 @@
-import axios from "axios";
 import { useState } from "react";
+
+// Helper function for fetch requests with proper error handling
+async function fetchJSON<T>(
+  url: string,
+  options?: RequestInit
+): Promise<T> {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+}
 
 const useApi = () => {
   const [loading, setLoading] = useState(false);
@@ -8,55 +27,62 @@ const useApi = () => {
   const generateReferralCode = async () => {
     setLoading(true);
     try {
-      const response = await axios.post(
-        "https://koszikla-api.fly.dev/api/karizmapp/referral/generate-code"
+      const data = await fetchJSON(
+        "https://koszikla-api.fly.dev/api/karizmapp/referral/generate-code",
+        { method: 'POST' }
       );
 
-      setData(response.data);
-      return response.data;
+      setData(data);
+      return data;
     } catch (error: any) {
       console.log(error.message);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const getRefferalCodeStatus = async (code: string) => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `https://koszikla-api.fly.dev/api/karizmapp/submition/${code}`
+      const data = await fetchJSON(
+        `https://koszikla-api.fly.dev/api/karizmapp/submition/${code}`,
+        { method: 'GET' }
       );
 
-      setData(response.data);
-      return response.data;
+      setData(data);
+      return data;
     } catch (error: any) {
       console.log(error.message);
       return {
         completed: false,
         answers: [],
       };
-      //   setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const submitAnswers = async (code: string, answers: any) => {
     setLoading(true);
     try {
-      const response = await axios.post(
+      const data = await fetchJSON(
         "https://koszikla-api.fly.dev/api/karizmapp/submition",
         {
-          code: code,
-          answers: answers,
+          method: 'POST',
+          body: JSON.stringify({
+            code: code,
+            answers: answers,
+          }),
         }
       );
 
-      setData(response.data);
-      return response.data;
+      setData(data);
+      return data;
     } catch (error: any) {
       console.log(error.message);
-      //   setError(error.message);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return {

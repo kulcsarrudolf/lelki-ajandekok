@@ -68,7 +68,7 @@ const Invite = () => {
 
             referrals.push({
               name: referralName,
-              code: response.code,
+              code: (response as any)?.code,
             });
 
             saveToLocalStorage(LocalStorageKeys.Referrals, {
