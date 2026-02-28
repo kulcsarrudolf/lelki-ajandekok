@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   LocalStorageKeys,
   loadFromLocalStorage,
+  saveToLocalStorage,
 } from "../../utils/local-storage";
 import { StoredAnswer } from "../../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
@@ -112,8 +113,11 @@ const Result = ({ goToHome }: ResultProps) => {
     return (
       <AnswerReview
         answers={answers}
-        onEditAnswer={() => {
-          // Navigate back to quiz to edit answers
+        onEditAnswer={(questionNumber: number) => {
+          saveToLocalStorage(LocalStorageKeys.LastQuestionNumber, {
+            value: JSON.stringify(questionNumber),
+            timestamp: new Date(),
+          });
           navigate("/quiz");
         }}
         onRecalculate={() => {

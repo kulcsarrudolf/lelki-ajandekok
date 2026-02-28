@@ -2,6 +2,21 @@ import React, { useState } from "react";
 import { StoredAnswer } from "../../types/Quiz";
 import Button from "../../design-system/Button";
 import { QUIZ_CONSTANTS } from "../../constants/quiz";
+import { quizData } from "../../data/quiz";
+
+// Build lookup maps from static quiz data
+const sectionNameMap: Record<number, string> = {};
+const questionTextMap: Record<number, string> = {};
+
+quizData.forEach((section) => {
+  section.questions.forEach((q) => {
+    const sectionNum = Math.ceil(q.value / 30);
+    if (!sectionNameMap[sectionNum]) {
+      sectionNameMap[sectionNum] = section.sectionName;
+    }
+    questionTextMap[q.value] = q.text;
+  });
+});
 
 interface AnswerReviewProps {
   answers: StoredAnswer[];
@@ -69,7 +84,7 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
                   className="w-full px-4 py-3 bg-gray-100 hover:bg-gray-200 flex justify-between items-center"
                 >
                   <span className="font-semibold">
-                    Szekció {section} ({sectionAnswers.length} válasz)
+                    {sectionNameMap[section] ?? `Szekció ${section}`} ({sectionAnswers.length} válasz)
                   </span>
                   <span className="text-gray-600">{isExpanded ? "−" : "+"}</span>
                 </button>
@@ -84,12 +99,12 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
                           className="flex justify-between items-center p-3 bg-white border rounded hover:bg-gray-50"
                         >
                           <div className="flex-1">
-                            <span className="font-medium text-sm text-gray-700">
-                              Kérdés {answer.questionNumber}:
-                            </span>
-                            <span className="ml-2 text-sm">
+                            <p className="font-medium text-sm text-gray-700">
+                              {answer.questionNumber}. {questionTextMap[answer.questionNumber] ?? ""}
+                            </p>
+                            <p className="text-sm text-gray-500 mt-1">
                               {answer.answer.text} ({answer.answer.value} pont)
-                            </span>
+                            </p>
                           </div>
                           <button
                             onClick={() => onEditAnswer(answer.questionNumber)}
