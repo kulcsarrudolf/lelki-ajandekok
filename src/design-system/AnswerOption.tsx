@@ -1,5 +1,6 @@
 import React from "react";
 import { QuizAnswer } from "../types/Quiz";
+import { cn } from "@/lib/utils";
 
 interface AnswerOptionProps {
   answer: QuizAnswer;
@@ -7,39 +8,19 @@ interface AnswerOptionProps {
   onSelect: (answer: QuizAnswer) => void;
 }
 
-const AnswerOption: React.FC<AnswerOptionProps> = ({
-  answer,
-  isSelected,
-  onSelect,
-}) => {
+const AnswerOption: React.FC<AnswerOptionProps> = ({ answer, isSelected, onSelect }) => {
   return (
-    <div
-      className={`flex items-center mb-2 p-2 rounded cursor-pointer ${
-        isSelected ? "bg-blue-300" : "bg-gray-200"
-      }`}
+    <button
       onClick={() => onSelect(answer)}
+      className={cn(
+        "w-full text-left px-5 py-4 rounded-lg font-body text-base transition-all duration-200 border",
+        isSelected
+          ? "bg-option-selected text-option-selected-foreground border-primary shadow-option-hover scale-[1.02]"
+          : "bg-option text-option-foreground border-transparent shadow-option hover:shadow-option-hover hover:border-primary/30 hover:scale-[1.01]"
+      )}
     >
-      <label
-        htmlFor={answer.text}
-        className="select-none ml-2 p-1 rounded w-full"
-      >
-        <input
-          type="radio"
-          id={answer.text}
-          name="question"
-          value={answer.text}
-          checked={isSelected}
-          onChange={() => onSelect(answer)}
-          className="mr-2 h-4 w-4 border-gray-300 rounded text-blue-600 focus:ring-blue-500"
-          style={{
-            opacity: 0,
-            position: "absolute",
-            margin: 0,
-          }}
-        />
-        {answer.text}
-      </label>
-    </div>
+      {answer.text}
+    </button>
   );
 };
 

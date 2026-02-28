@@ -39,7 +39,7 @@ const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
           }}
         />
 
-        <div className="mt-2">
+        <div className="mt-4 space-y-3">
           {answerOptions.map((answer: QuizAnswer) => (
             <AnswerOption
               key={answer.id}

@@ -7,8 +7,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 function App() {
   return (
     <ErrorBoundary>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="w-full max-w-lg p-5 bg-white rounded shadow-lg">
+      <div className="flex justify-center items-center min-h-screen bg-background p-4">
+        <div className="w-full max-w-lg bg-card rounded-2xl shadow-card p-8 md:p-10 animate-fade-in">
           <Title text="Lelki ajándékok" />
           <Router>
             <AppRoutes />

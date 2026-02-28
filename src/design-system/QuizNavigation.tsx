@@ -47,7 +47,7 @@ const QuizNavigation: React.FC<QuizNavigationProps> = ({
           disabled={isFirstQuestion}
           text="Előző kérdés"
           order={1}
-          colorClass="bg-rose-500 hover:bg-rose-600"
+          variant="ghost"
         />
 
         <Button

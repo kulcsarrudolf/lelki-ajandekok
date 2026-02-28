@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import {
   LocalStorageKeys,
   loadFromLocalStorage,
-  saveToLocalStorage,
 } from "../../utils/local-storage";
 import { StoredAnswer } from "../../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
 import gifts from "../../data/gifts";
 import Button from "../../design-system/Button";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { QUIZ_CONSTANTS } from "../../constants/quiz";
 import AnswerReview from "./AnswerReview";
 
@@ -70,7 +69,6 @@ interface ResultProps {
 }
 
 const Result = ({ goToHome }: ResultProps) => {
-  const navigate = useNavigate();
   const [result, setResult] = useState<QuizResults | null>(null);
   const [isComplete, setIsComplete] = useState<boolean | undefined>(undefined);
   const [showAnswerReview, setShowAnswerReview] = useState(false);
@@ -113,13 +111,6 @@ const Result = ({ goToHome }: ResultProps) => {
     return (
       <AnswerReview
         answers={answers}
-        onEditAnswer={(questionNumber: number) => {
-          saveToLocalStorage(LocalStorageKeys.LastQuestionNumber, {
-            value: JSON.stringify(questionNumber),
-            timestamp: new Date(),
-          });
-          navigate("/quiz");
-        }}
         onRecalculate={() => {
           loadAndCalculateResults();
           setShowAnswerReview(false);
@@ -140,7 +131,7 @@ const Result = ({ goToHome }: ResultProps) => {
         </ul>
       </div>
 
-      <hr className="my-6 border-gray-200" />
+      <hr className="my-6 border-border" />
 
       <div>
         <h3 className="text-xl font-semibold mb-2">REJTETT AJÁNDÉKAIM</h3>
@@ -150,7 +141,7 @@ const Result = ({ goToHome }: ResultProps) => {
           ))}
         </ul>
         <p className="my-4 font-semibold ">
-          A <span className="text-blue-600">rejett ajándékok</span> további
+          A <span className="text-primary">rejett ajándékok</span> további
           lehetséges karizmákat jelölnek. Kérd Istent, hogy gerjessze fel benned
           őket!
         </p>
@@ -162,7 +153,6 @@ const Result = ({ goToHome }: ResultProps) => {
           disabled={false}
           text="Válaszaim megtekintése"
           fullWidth
-          colorClass="bg-green-500 hover:bg-green-600"
           noMargin
         />
 

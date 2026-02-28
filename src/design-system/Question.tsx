@@ -8,7 +8,7 @@ interface QuestionProps {
 const Question: React.FC<QuestionProps> = ({ question: { text, value } }) => {
   return (
     <div className="min-h-[7rem]">
-      <p className="italic text-md">
+      <p className="font-body text-base text-foreground">
         <span className="font-bold">{value}.</span> {text}
       </p>
     </div>

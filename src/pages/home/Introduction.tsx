@@ -43,7 +43,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
   }, []);
 
   return (
-    <>
+    <div className="space-y-4 text-foreground/80 font-body text-base leading-relaxed">
       <p>
         Minden hívőnek teremnie kell a Lélek gyümölcsét. Minden újjászületett
         hívő ember kapott legalább egy lelki ajándékot (karizmát), hogy
@@ -56,84 +56,78 @@ const Introduction = ({ goForward }: IntroductionProps) => {
         akarja, hogy tudjuk, milyen lelki ajándékot kaptunk, s azzal
         sáfárkodjunk örömmel.
       </p>
-      <p className="mt-4 font-bold">
+      <p className="font-semibold text-foreground">
         Olvasd el a 180 mondatot, és jelöld meg az öt válasz közül azt, amelyik
         legközelebb áll hozzád. Adj őszinte és spontán választ!
       </p>
-      <p className="font-bold italic mt-4">
+      <p className="font-semibold italic text-primary">
         Sok örömet kívánunk neked a teszt elkészítése közben!
       </p>
-      <p className="mt-4 font-bold">
+      <p className="text-sm text-muted-foreground">
         Forrás:{" "}
-        <span className="font-normal italic text-blue-800">
-          <a
-            href="http://www.tavasz56.hu/tp/szolg/20091220-karizma_teszt.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            http://www.tavasz56.hu/tp/szolg/20091220-karizma_teszt.pdf
-          </a>
-        </span>
+        <a
+          href="http://www.tavasz56.hu/tp/szolg/20091220-karizma_teszt.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline hover:opacity-80"
+        >
+          karizma_teszt.pdf
+        </a>
       </p>
 
-      {!isCompleted && (
-        <div className="w-full mt-10 flex justify-center">
+      <div className="space-y-3 pt-4">
+        {!isCompleted && (
           <Button
             disabled={false}
             text={quizButtonText}
             onClick={goForward}
             fullWidth
           />
-        </div>
-      )}
+        )}
 
-      {isCompleted && (
-        <div className="w-full mt-2 flex justify-center w-108">
+        {isCompleted && (
           <Button
             disabled={false}
             text="Ajándékaim megtekintése"
             onClick={() => navigate("/results")}
-            fullWidth={true}
+            fullWidth
           />
-        </div>
-      )}
-      {isCompleted && (
-        <div className="w-full mt-2 flex justify-center w-108">
+        )}
+        {isCompleted && (
           <Button
             disabled={false}
             text="Barátaid meghívása"
             onClick={() => navigate("/invite")}
-            fullWidth={true}
+            fullWidth
           />
-        </div>
-      )}
-      <div className="w-full mt-2 flex justify-center w-108">
+        )}
+
         <Button
           disabled={false}
           text="Teszt kitöltése egy barátom számára"
           onClick={() => navigate("/quiz-referral")}
-          fullWidth={true}
+          fullWidth
+          variant="outline"
         />
-      </div>
-      {showResetButton && (
-        <div className="w-full mt-2 flex justify-center w-108">
+
+        {showResetButton && (
           <Button
             disabled={false}
             text="Teszt újrakezdése"
             onClick={handleDeleteLocalStorage}
-            fullWidth={true}
+            fullWidth
+            variant="outline"
+          />
+        )}
+
+        <div className="text-center pt-2">
+          <TextButton
+            text="Adatvédelmi és Biztonsági Tájékoztató"
+            onClick={() => navigate("/privacy")}
           />
         </div>
-      )}
-
-      <div className="w-full mt-8 flex justify-center w-108 text-center">
-        <TextButton
-          text="Adatvédelmi és Biztonsági Tájékoztató"
-          fullWidth={true}
-          onClick={() => navigate("/privacy")}
-        />
       </div>
-    </>
+    </div>
   );
 };
 

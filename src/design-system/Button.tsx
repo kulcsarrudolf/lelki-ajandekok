@@ -5,7 +5,7 @@ interface ButtonProps {
   extraClasses?: string;
   order?: number;
   fullWidth?: boolean;
-  colorClass?: string; // New prop to handle color classes
+  variant?: "primary" | "outline" | "ghost" | "danger";
   noMargin?: boolean;
 }
 
@@ -16,35 +16,36 @@ const Button: React.FC<ButtonProps> = ({
   extraClasses,
   order,
   fullWidth = false,
-  colorClass,
+  variant = "primary",
   noMargin,
 }) => {
   const width = fullWidth ? "w-full" : "min-w-[10rem]";
-
-  const color = order === 1 ? "bg-rose-200" : "bg-blue-200";
-
-  // Use the provided colorClass or default to blue
-  const colorClasses = colorClass || "bg-blue-500 hover:bg-blue-600";
   const o = order ? `order-${order} xs:order-none` : "";
-  const disabledClasses = `${color} cursor-not-allowed`;
   const margin = noMargin ? "" : "mx-5";
 
-  const defaultClasses = `${width} h-12 px-5 text-white font-semibold rounded focus:outline-none focus:ring-2 focus:ring-blue-300 ${margin} ${o}`;
+  const variantClasses = {
+    primary: "bg-primary text-primary-foreground shadow-button hover:bg-primary/90 active:scale-[0.98]",
+    outline: "border-2 border-primary text-primary bg-transparent hover:bg-primary/5 active:scale-[0.98]",
+    ghost:   "bg-accent text-accent-foreground shadow-sm hover:opacity-90 active:scale-[0.98]",
+    danger:  "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:scale-[0.98]",
+  };
+
+  const disabledClasses = "bg-muted text-muted-foreground cursor-not-allowed opacity-60";
+
+  const baseClasses = `${width} h-12 px-5 font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring ${margin} ${o}`;
 
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${defaultClasses} ${
-        disabled ? disabledClasses : colorClasses
-      } ${extraClasses}`}
+      className={`${baseClasses} ${disabled ? disabledClasses : variantClasses[variant]} ${extraClasses ?? ""}`}
     >
       {text}
     </button>
   );
 };
 
-export const TextButton: React.FC<ButtonProps & { linkStyle?: boolean }> = ({
+export const TextButton: React.FC<Omit<ButtonProps, "variant">> = ({
   onClick,
   text,
   order,
@@ -52,16 +53,14 @@ export const TextButton: React.FC<ButtonProps & { linkStyle?: boolean }> = ({
   noMargin,
 }) => {
   const width = fullWidth ? "w-full" : "min-w-[10rem]";
-
   const o = order ? `order-${order} xs:order-none` : "";
   const margin = noMargin ? "" : "mx-5";
 
-  const defaultClasses = `${width} h-12 px-5 text-white font-semibold rounded focus:outline-none focus:ring-2 focus:ring-blue-300 ${margin} ${o} cursor-pointer`;
-
-  const linkClasses = "text-blue-500 hover:underline";
-
   return (
-    <a onClick={onClick} className={`${defaultClasses} ${linkClasses}`}>
+    <a
+      onClick={onClick}
+      className={`${width} h-12 px-5 font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-ring ${margin} ${o} cursor-pointer text-primary hover:underline flex items-center justify-center`}
+    >
       {text}
     </a>
   );

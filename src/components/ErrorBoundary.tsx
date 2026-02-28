@@ -22,7 +22,6 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   static getDerivedStateFromError(error: Error): State {
-    // Update state so the next render will show the fallback UI
     return {
       hasError: true,
       error,
@@ -31,7 +30,6 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    // Log error details for debugging
     console.error("Error caught by ErrorBoundary:", error, errorInfo);
     this.setState({
       error,
@@ -45,7 +43,6 @@ class ErrorBoundary extends Component<Props, State> {
       error: null,
       errorInfo: null,
     });
-    // Reload the page to reset the app state
     window.location.href = "/";
   };
 
@@ -56,9 +53,9 @@ class ErrorBoundary extends Component<Props, State> {
   render(): ReactNode {
     if (this.state.hasError) {
       return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-50">
-          <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 text-center">
-            <div className="text-red-500 mb-6">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-background">
+          <div className="max-w-2xl w-full bg-card rounded-2xl shadow-card p-8 text-center">
+            <div className="text-destructive mb-6">
               <svg
                 className="w-24 h-24 mx-auto"
                 fill="none"
@@ -74,21 +71,21 @@ class ErrorBoundary extends Component<Props, State> {
               </svg>
             </div>
 
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl font-bold text-foreground mb-4">
               Hoppá! Valami hiba történt
             </h1>
 
-            <p className="text-gray-600 mb-6">
+            <p className="text-muted-foreground mb-6">
               Sajnáljuk, de az alkalmazásban váratlan hiba történt. Próbáld meg
               újratölteni az oldalt, vagy térj vissza a kezdőlapra.
             </p>
 
             {import.meta.env.DEV && this.state.error && (
-              <details className="mb-6 text-left bg-gray-100 rounded-lg p-4">
-                <summary className="cursor-pointer font-semibold text-gray-700 mb-2">
+              <details className="mb-6 text-left bg-muted rounded-lg p-4">
+                <summary className="cursor-pointer font-semibold text-muted-foreground mb-2">
                   Hiba részletei (csak fejlesztői módban)
                 </summary>
-                <div className="text-sm text-red-600 font-mono overflow-auto">
+                <div className="text-sm text-destructive font-mono overflow-auto">
                   <p className="font-bold mb-2">{this.state.error.toString()}</p>
                   {this.state.errorInfo && (
                     <pre className="whitespace-pre-wrap text-xs">
@@ -103,13 +100,12 @@ class ErrorBoundary extends Component<Props, State> {
               <Button
                 text="Vissza a kezdőlapra"
                 onClick={this.handleReset}
-                colorClass="bg-blue-500 hover:bg-blue-600"
                 noMargin
               />
               <Button
                 text="Oldal újratöltése"
                 onClick={this.handleReload}
-                colorClass="bg-gray-500 hover:bg-gray-600"
+                variant="outline"
                 noMargin
               />
             </div>

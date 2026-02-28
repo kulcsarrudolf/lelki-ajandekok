@@ -20,7 +20,6 @@ quizData.forEach((section) => {
 
 interface AnswerReviewProps {
   answers: StoredAnswer[];
-  onEditAnswer: (questionNumber: number) => void;
   onRecalculate: () => void;
   onBack: () => void;
 }
@@ -30,7 +29,6 @@ interface AnswerReviewProps {
  */
 const AnswerReview: React.FC<AnswerReviewProps> = ({
   answers,
-  onEditAnswer,
   onRecalculate,
   onBack,
 }) => {
@@ -58,12 +56,12 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
     <div className="space-y-4">
       <h2 className="text-2xl font-bold text-center mb-4">Válaszaid áttekintése</h2>
 
-      <div className="bg-blue-50 p-4 rounded-lg mb-6">
+      <div className="bg-muted/30 p-4 rounded-lg mb-6">
         <p className="text-center text-lg">
           <span className="font-bold">{totalAnswered}</span> / {expectedTotal} kérdés megválaszolva
         </p>
         {totalAnswered < expectedTotal && (
-          <p className="text-center text-sm text-red-600 mt-2">
+          <p className="text-center text-sm text-destructive mt-2">
             Még {expectedTotal - totalAnswered} kérdés van hátra
           </p>
         )}
@@ -78,15 +76,15 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
             const isExpanded = expandedSection === section;
 
             return (
-              <div key={section} className="border rounded-lg overflow-hidden">
+              <div key={section} className="border border-border rounded-lg overflow-hidden">
                 <button
                   onClick={() => toggleSection(section)}
-                  className="w-full px-4 py-3 bg-gray-100 hover:bg-gray-200 flex justify-between items-center"
+                  className="w-full px-4 py-3 bg-muted/50 hover:bg-muted flex justify-between items-center"
                 >
                   <span className="font-semibold">
                     {sectionNameMap[section] ?? `Szekció ${section}`} ({sectionAnswers.length} válasz)
                   </span>
-                  <span className="text-gray-600">{isExpanded ? "−" : "+"}</span>
+                  <span className="text-muted-foreground">{isExpanded ? "−" : "+"}</span>
                 </button>
 
                 {isExpanded && (
@@ -96,22 +94,14 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
                       .map((answer) => (
                         <div
                           key={answer.questionNumber}
-                          className="flex justify-between items-center p-3 bg-white border rounded hover:bg-gray-50"
+                          className="p-3 bg-card border border-border rounded"
                         >
-                          <div className="flex-1">
-                            <p className="font-medium text-sm text-gray-700">
-                              {answer.questionNumber}. {questionTextMap[answer.questionNumber] ?? ""}
-                            </p>
-                            <p className="text-sm text-gray-500 mt-1">
-                              {answer.answer.text} ({answer.answer.value} pont)
-                            </p>
-                          </div>
-                          <button
-                            onClick={() => onEditAnswer(answer.questionNumber)}
-                            className="ml-4 px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
-                          >
-                            Szerkesztés
-                          </button>
+                          <p className="font-medium text-sm text-foreground">
+                            {answer.questionNumber}. {questionTextMap[answer.questionNumber] ?? ""}
+                          </p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            {answer.answer.text} ({answer.answer.value} pont)
+                          </p>
                         </div>
                       ))}
                   </div>
@@ -134,7 +124,7 @@ const AnswerReview: React.FC<AnswerReviewProps> = ({
           onClick={onBack}
           text="Vissza"
           fullWidth
-          colorClass="bg-gray-500 hover:bg-gray-600"
+          variant="outline"
           noMargin
         />
       </div>

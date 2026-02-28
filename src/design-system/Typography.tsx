@@ -3,12 +3,7 @@ interface TypographyProps {
   small?: boolean;
 }
 export const Title = ({ text }: TypographyProps) => (
-  <h1
-    style={{
-      fontFamily: "'Bree Serif', serif",
-    }}
-    className="text-center my-10 text-5xl font-bold"
-  >
+  <h1 className="font-display text-center my-10 text-5xl font-bold">
     {text}
   </h1>
 );
@@ -19,7 +14,7 @@ export const Subtitle = ({ text }: TypographyProps) => (
 
 export const Description = ({ text, small }: TypographyProps) => {
   if (small) {
-    return <p className="text-sm text-gray-600 italic">{text}</p>;
+    return <p className="text-sm text-muted-foreground italic">{text}</p>;
   }
 
   return <p className="font-bold text-lg mb-2">{text}</p>;
