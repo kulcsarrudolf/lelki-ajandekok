@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: lelki-ajandekok-dev
+    container_name: karizm-app-dev
     ports:
       - "5173:5173"  # Vite dev server
     volumes:

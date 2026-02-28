@@ -1,4 +1,4 @@
-# Lelki Ajándékok
+# karizm-app
 
 A spiritual gifts assessment application to help Christian believers identify their charismata through a comprehensive 180-question quiz.
 
