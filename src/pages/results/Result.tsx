@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import {
   LocalStorageKeys,
   loadFromLocalStorage,
-} from "../utils/local-storage";
-import { StoredAnswer } from "../types/Quiz";
+} from "../../utils/local-storage";
+import { StoredAnswer } from "../../types/Quiz";
 import { v4 as uuidv4 } from "uuid";
-import gifts from "../data/gifts";
-import Button from "./Button";
+import gifts from "../../data/gifts";
+import Button from "../../design-system/Button";
 import { Navigate, useNavigate } from "react-router-dom";
-import { QUIZ_CONSTANTS } from "../constants/quiz";
+import { QUIZ_CONSTANTS } from "../../constants/quiz";
 import AnswerReview from "./AnswerReview";
 
 interface Gift {

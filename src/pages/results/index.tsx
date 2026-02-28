@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Result from "../components/Result";
+import Result from "./Result";
 
 const Results = () => {
   const navigate = useNavigate();

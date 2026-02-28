@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { StoredAnswer } from "../types/Quiz";
-import Button from "./Button";
-import { QUIZ_CONSTANTS } from "../constants/quiz";
+import { StoredAnswer } from "../../types/Quiz";
+import Button from "../../design-system/Button";
+import { QUIZ_CONSTANTS } from "../../constants/quiz";
 
 interface AnswerReviewProps {
   answers: StoredAnswer[];

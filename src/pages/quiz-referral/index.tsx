@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import QuizCard from "../QuizCard";
-import { getQuizDataForReferral, IQuestionDetails } from "../data/quiz";
+import QuizCard from "../../components/QuizCard";
+import { getQuizDataForReferral, IQuestionDetails } from "../../data/quiz";
 import {
   loadFromLocalStorage,
   LocalStorageKeys,
   removeFromLocalStorage,
-} from "../utils/local-storage";
+} from "../../utils/local-storage";
 import { useState } from "react";
-import useApi from "../hooks/useApi";
-import { StoredAnswer } from "../types/Quiz";
+import useApi from "../../hooks/useApi";
+import { StoredAnswer } from "../../types/Quiz";
 
 const quizData: IQuestionDetails[] = getQuizDataForReferral();
 

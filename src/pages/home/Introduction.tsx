@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Button, { TextButton } from "./Button";
+import Button, { TextButton } from "../../design-system/Button";
 import {
   LocalStorageKeys,
   clearLocalStorage,
   loadFromLocalStorage,
-} from "../utils/local-storage";
+} from "../../utils/local-storage";
 import { useNavigate } from "react-router-dom";
-import { StoredAnswer } from "../types/Quiz";
+import { StoredAnswer } from "../../types/Quiz";
 
 interface IntroductionProps {
   goForward: () => void;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Button from "../components/Button";
-import { useReferralState } from "../hooks/useReferralState";
+import Button from "../../design-system/Button";
+import { useReferralState } from "../../hooks/useReferralState";
 
 const Invite = () => {
   const { referrals, loadReferralsWithStatus, addReferral } = useReferralState();

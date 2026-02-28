@@ -1,10 +1,10 @@
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
-import Quiz from "../pages/Quiz";
-import QuizReferral from "../pages/QuizReferral";
-import Results from "../pages/Results";
-import Invite from "../pages/Invite";
-import Privacy from "../pages/Privacy";
+import Home from "../pages/home/index";
+import NotFound from "../pages/not-found/index";
+import Quiz from "../pages/quiz/index";
+import QuizReferral from "../pages/quiz-referral/index";
+import Results from "../pages/results/index";
+import Invite from "../pages/invite/index";
+import Privacy from "../pages/privacy/index";
 
 interface RouteConfig {
   path: string;

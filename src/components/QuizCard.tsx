@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useCallback } from "react";
-import { IQuestionDetails } from "./data/quiz";
-import { LocalStorageKeys, saveToLocalStorage } from "./utils/local-storage";
-import { QUIZ_CONSTANTS, QUIZ_MESSAGES } from "./constants/quiz";
-import { useQuizState } from "./hooks/useQuizState";
-import QuestionDisplay from "./components/Quiz/QuestionDisplay";
-import QuizNavigation from "./components/Quiz/QuizNavigation";
-import ProgressBar from "./components/Quiz/ProgressBar";
+import { IQuestionDetails } from "../data/quiz";
+import { LocalStorageKeys, saveToLocalStorage } from "../utils/local-storage";
+import { QUIZ_CONSTANTS, QUIZ_MESSAGES } from "../constants/quiz";
+import { useQuizState } from "../hooks/useQuizState";
+import QuestionDisplay from "../design-system/QuestionDisplay";
+import QuizNavigation from "../design-system/QuizNavigation";
+import ProgressBar from "../design-system/ProgressBar";
 
 interface QuizCardProps {
   handleNextStep: () => void;

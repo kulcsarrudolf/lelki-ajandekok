@@ -1,4 +1,4 @@
-import { Title } from "./components/Typography";
+import { Title } from "./design-system/Typography";
 import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
