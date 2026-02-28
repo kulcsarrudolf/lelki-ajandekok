@@ -36,6 +36,7 @@ const QuizNavigation: React.FC<QuizNavigationProps> = ({
             disabled={!isAnswerSelected}
             text={submitButtonText}
             fullWidth
+            noMargin
           />
         </div>
       )}
@@ -48,6 +49,7 @@ const QuizNavigation: React.FC<QuizNavigationProps> = ({
           text="Előző kérdés"
           order={1}
           variant="ghost"
+          noMargin
         />
 
         <Button
@@ -55,6 +57,7 @@ const QuizNavigation: React.FC<QuizNavigationProps> = ({
           disabled={!isAnswerSelected || isLastQuestion}
           text="Következő kérdés"
           order={2}
+          noMargin
         />
       </div>
     </div>

@@ -82,6 +82,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
             text={quizButtonText}
             onClick={goForward}
             fullWidth
+            noMargin
           />
         )}
 
@@ -91,6 +92,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
             text="Ajándékaim megtekintése"
             onClick={() => navigate("/results")}
             fullWidth
+            noMargin
           />
         )}
         {isCompleted && (
@@ -99,6 +101,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
             text="Barátaid meghívása"
             onClick={() => navigate("/invite")}
             fullWidth
+            noMargin
           />
         )}
 
@@ -107,6 +110,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
           text="Teszt kitöltése egy barátom számára"
           onClick={() => navigate("/quiz-referral")}
           fullWidth
+          noMargin
           variant="outline"
         />
 
@@ -116,6 +120,7 @@ const Introduction = ({ goForward }: IntroductionProps) => {
             text="Teszt újrakezdése"
             onClick={handleDeleteLocalStorage}
             fullWidth
+            noMargin
             variant="outline"
           />
         )}
